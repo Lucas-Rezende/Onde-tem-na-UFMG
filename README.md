@@ -4,3 +4,4 @@
 
  ## Integrantes
 - Lucas Momede Barreto Rezende
+- Vinícius de Oliveira Marcos
