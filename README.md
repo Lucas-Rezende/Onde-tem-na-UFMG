@@ -5,7 +5,7 @@
 - Lucas Momede Barreto Rezende (Fullstack)
 - Vinícius de Oliveira Marcos (Fullstack)
 - Wilian Ventura dos reis (Fullstack)
-- 
+- Luiza Sodré Salgado (Fullstack)
 
 ## Objetivo
 - Montar um sistema Web que informa os valores dos itens de cada lanchonete da universidade. 
