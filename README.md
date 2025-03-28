@@ -5,3 +5,4 @@
  ## Integrantes
 - Lucas Momede Barreto Rezende
 - Vinícius de Oliveira Marcos
+- Wilian Ventura dos reis
