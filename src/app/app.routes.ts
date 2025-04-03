@@ -4,6 +4,5 @@ import { Error404Component } from './modules/error/pages/error-404/error-404.com
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: '**', component: Error404Component }
 ];
