@@ -2,32 +2,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Sora:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
 
 html, body {
-  height: 100%;
   margin: 0;
-  overflow: hidden;
-  font-family: 'Montserrat';
+  padding: 0;
 }
 
-.container {
-  display: grid;
-  grid-template-rows: 94% 6%;
-  height: 100vh;
-}
-
-.conteudo {
-}
-
-/* FOOTER */
-.footer-global {
-  width: 100%;
-  background-color: purple no-repeat bottom center;
-  text-align: right;
-}
-
-.footer img {
-  width: auto;
-  max-width: 8%;
-  object-fit: contain;
+.footer {
+  align-items: center;
+  text-align: center;
+  padding: 1vh;
+  background-color: #25408F;
+  color: white;
 }
