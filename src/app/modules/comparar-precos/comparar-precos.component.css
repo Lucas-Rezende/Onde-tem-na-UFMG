@@ -1,0 +1,12 @@
+.comparacao-screen {
+  padding: 0;
+  margin: 0;
+  background-color: #1226AA;
+  height: 95vh;
+}
+
+.comparacao-screen p {
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+}
