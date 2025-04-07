@@ -10,3 +10,19 @@
   margin: 0;
   color: #ffffff;
 }
+
+.search-container{
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.search-container form {
+  width: 30%;
+  position: relative;
+}
+
+.search-container input {
+  padding: .5em;
+  width: 100%;
+  text-align: center;
+}
