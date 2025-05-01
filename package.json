@@ -41,5 +41,10 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.7.2"
-  }
+  },
+  "description": "**Onde tem na UFMG** permite que os usuários visualizem todas as lanchonetes da UFMG, exibindo os itens e seus respectivos preços. Além disso, possibilita a comparação de preços entre produtos semelhantes de diferentes lanchonetes, facilitando a escolha mais econômica. Eventuais alterações nos valores dos itens podem ser informadas pela comunidade universitária, garantindo que as informações exibidas estejam sempre atualizadas.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
