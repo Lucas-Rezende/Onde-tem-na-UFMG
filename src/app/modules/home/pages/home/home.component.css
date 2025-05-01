@@ -12,6 +12,8 @@
     grid-template-rows: auto auto auto auto;
 
     background-color: #ffffff;
+
+    height: 100%;
 }
 
 .hero {
@@ -140,6 +142,17 @@
 
   .price-comparison .block-2 {
     order: 2;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-buttons .btn {
+    width: 80%;
+    justify-content: center;
   }
 }
 

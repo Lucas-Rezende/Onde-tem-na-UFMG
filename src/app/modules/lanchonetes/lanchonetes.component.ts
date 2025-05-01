@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -5,24 +6,39 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lanchonetes',
-  imports: [],
+  imports: [ CommonModule ],
   templateUrl: './lanchonetes.component.html',
   styleUrl: './lanchonetes.component.css',
-  
 })
 
 export class LanchonetesComponent {
-  searchTerm : string = '';
+  searchTerm: string = '';
 
-  constructor (private router : Router){}
-  search(e: Event) : void{
-   
-  const target = e.target as HTMLInputElement;
-  const value = target.value;
-    
+  lanchonetes = [
+    { nome: 'Lanchonete ICEX', local: 'Bloco A', precoMedio: 'R$ 15' },
+    { nome: 'Cantina Central', local: 'Centro', precoMedio: 'R$ 12' },
+    { nome: 'Lanches do João', local: 'Bloco B', precoMedio: 'R$ 10' },
+    // outras fictícias...
+  ];
+
+  constructor(private router: Router) {}
+
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement;
+    this.searchTerm = target.value;
   }
 
-  voltar() : void{
-    this.router.navigate([''])
+  get lanchonetesFiltradas() {
+    const termo = this.searchTerm.trim().toLowerCase();
+    if (!termo) return [];
+
+    return this.lanchonetes.filter(l =>
+      l.nome.toLowerCase().includes(termo)
+    );
+  }
+
+  voltar(): void {
+    this.router.navigate(['']);
   }
 }
+
