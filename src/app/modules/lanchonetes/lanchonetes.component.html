@@ -26,7 +26,7 @@
       <h3>{{ lanchonete.Nome }}</h3>
       <p><strong>Unidade:</strong> {{ lanchonete.Unidade }}</p>
       <p><strong>Predio:</strong> {{ lanchonete.Predio}}</p>
-      <p><strong>Local:</strong> {{ lanchonete.predio }}
+      <p><strong>Local:</strong>
         <a *ngIf="lanchonete.linkMapa" [href]="lanchonete.linkMapa" target="_blank" class="map-link">
           <span class="icon-mapa">📍</span> Ver no mapa
         </a>
