@@ -97,6 +97,24 @@
   text-align: left;
 }
 
+.map-link {
+  color: #0066cc;
+  text-decoration: none;
+  margin-left: 8px;
+  font-size: 0.9em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+
+.icon-mapa {
+  margin-right: 4px;
+  font-size: 1.1em;
+}
+
 @media (max-width: 768px) {
   .lista-lanchonetes {
     grid-template-columns: 1fr;

@@ -1,11 +1,23 @@
 import { Component } from '@angular/core';
+import dataprecos from '../../../assets/dados/Tabela_com_precos.json';
+import datalanchonetes from '../../../assets/datalanchonetes.json';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-comparar-precos',
-  imports: [],
+  imports: [CommonModule], 
   templateUrl: './comparar-precos.component.html',
-  styleUrl: './comparar-precos.component.css'
+  styleUrl: './comparar-precos.component.css',
+  standalone: true
 })
 export class CompararPrecosComponent {
 
+  itens : any [] = dataprecos;
+  lanchonetes : any [] = datalanchonetes.lanchonetes;
+
+  ngOnInit() {
+    this.itens.sort((a, b) => a.Item.localeCompare(b.Item));
+  }
 }
+
