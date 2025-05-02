@@ -1,0 +1,94 @@
+{
+  "lanchonetes": [
+    {
+      "Nome": "COLTEC",
+      "Unidade": "COLTEC",
+      "Prédio": "Colégio Técnico"
+    },
+    {
+      "Nome": "EBA",
+      "Unidade": "Escola de Belas Artes",
+      "Prédio": "Prédio Principal da EBA"
+    },
+    {
+      "Nome": "EEFFTO",
+      "Unidade": "Escola de Educação Física, Fisioterapia e Terapia Ocupacional",
+      "Prédio": "Prédio Principal da EEFFTO"
+    },
+    {
+      "Nome": "ENG B1",
+      "Unidade": "Escola de Engenharia",
+      "Prédio": "Bloco 1"
+    },
+    {
+      "Nome": "ENG B3",
+      "Unidade": "Escola de Engenharia",
+      "Prédio": "Bloco 3"
+    },
+    {
+      "Nome": "FACE",
+      "Unidade": "Faculdade de Ciências Econômicas",
+      "Prédio": "Prédio da FACE"
+    },
+    {
+      "Nome": "FAE",
+      "Unidade": "Faculdade de Educação",
+      "Prédio": "Prédio da FAE"
+    },
+    {
+      "Nome": "FAFAR",
+      "Unidade": "Faculdade de Farmácia",
+      "Prédio": "Prédio Principal"
+    },
+    {
+      "Nome": "FAFICH",
+      "Unidade": "Faculdade de Filosofia e Ciências Humanas",
+      "Prédio": "Prédio da FAFICH"
+    },
+    {
+      "Nome": "FALE",
+      "Unidade": "Faculdade de Letras",
+      "Prédio": "Prédio da FALE"
+    },
+    {
+      "Nome": "ICB",
+      "Unidade": "Instituto de Ciências Biológicas",
+      "Prédio": "ICB 1"
+    },
+    {
+      "Nome": "ICEX",
+      "Unidade": "Instituto de Ciências Exatas",
+      "Prédio": "Prédio Principal do ICEX"
+    },
+    {
+      "Nome": "MED",
+      "Unidade": "Faculdade de Medicina",
+      "Prédio": "Prédio Principal"
+    },
+    {
+      "Nome": "Musica",
+      "Unidade": "Escola de Música",
+      "Prédio": "Prédio da Escola de Música"
+    },
+    {
+      "Nome": "Praça S",
+      "Unidade": "Praça de Serviços",
+      "Prédio": "Praça de Serviços"
+    },
+    {
+      "Nome": "Quimica",
+      "Unidade": "Departamento de Química",
+      "Prédio": "Instituto de Ciências Exatas - Química"
+    },
+    {
+      "Nome": "UAIII",
+      "Unidade": "Unidade Administrativa III",
+      "Prédio": "UAIII"
+    },
+    {
+      "Nome": "VET",
+      "Unidade": "Escola de Veterinária",
+      "Prédio": "Prédio Principal da Veterinária"
+    }
+  ]
+}
