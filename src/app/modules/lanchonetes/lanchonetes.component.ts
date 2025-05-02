@@ -1,26 +1,19 @@
+import datalanchonetes from '../../../assets/datalanchonetes.json';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-//import { LanchoneteDataService } from '../../services/lanchonete-data.service';
-//import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-lanchonetes',
-  imports: [ CommonModule ],
+  imports: [CommonModule],
   templateUrl: './lanchonetes.component.html',
-  styleUrl: './lanchonetes.component.css',
+  styleUrls: ['./lanchonetes.component.css'],
 })
-
 export class LanchonetesComponent {
   searchTerm: string = '';
 
-
-  lanchonetes = [
-    { nome: 'Lanchonete ICEX', local: 'Bloco A', precoMedio: 'R$ 15' },
-    { nome: 'Cantina Central', local: 'Centro', precoMedio: 'R$ 12' },
-    { nome: 'Lanches do João', local: 'Bloco B', precoMedio: 'R$ 10' },
-    // outras fictícias...
-  ];
+  lanchonetes: any[] = datalanchonetes.lanchonetes;
 
   constructor(private router: Router) {}
 
@@ -31,11 +24,15 @@ export class LanchonetesComponent {
 
   get lanchonetesFiltradas() {
     const termo = this.searchTerm.trim().toLowerCase();
-    if (!termo) return [];
+    if (!termo) return this.lanchonetes;
 
     return this.lanchonetes.filter(l =>
-      l.nome.toLowerCase().includes(termo)
+      l.Nome.toLowerCase().includes(termo)
     );
+  }
+
+  trackById(index: number, lanchonete: any): number {
+    return lanchonete.Nome;
   }
 
   voltar(): void {
