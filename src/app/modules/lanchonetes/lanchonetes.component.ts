@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LanchoneteDataService } from '../../services/lanchonete-data.service';
+//import { LanchoneteDataService } from '../../services/lanchonete-data.service';
 //import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -11,11 +11,9 @@ import { LanchoneteDataService } from '../../services/lanchonete-data.service';
   styleUrl: './lanchonetes.component.css',
 })
 
-export class LanchonetesComponent implements OnInit {
+export class LanchonetesComponent {
   searchTerm: string = '';
-  dadosTabela: any[] = [];
-  colunasTabela: string[] = [];
-  resultadosOrdenados: any[] = [];
+
 
   lanchonetes = [
     { nome: 'Lanchonete ICEX', local: 'Bloco A', precoMedio: 'R$ 15' },
@@ -24,19 +22,7 @@ export class LanchonetesComponent implements OnInit {
     // outras fictícias...
   ];
 
-  constructor(
-    private router: Router,
-    private dataService: LanchoneteDataService
-  ) {}
-
-  ngOnInit() {
-    this.dataService.getPrecos().subscribe(data => {
-      this.dadosTabela = data;
-      if (data && data.length > 0) {
-        this.colunasTabela = Object.keys(data[0]);
-      }
-    });
-  }
+  constructor(private router: Router) {}
 
   search(e: Event): void {
     const target = e.target as HTMLInputElement;

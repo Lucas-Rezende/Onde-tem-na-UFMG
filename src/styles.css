@@ -1,17 +1,15 @@
 /* CONTEÚDO GLOBAL */
 
-* {
-  font-family: 'Poppins';
-  overflow-x: hidden;
-}
-
-html {
-  scroll-behavior: smooth;
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 html, body {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .footer {

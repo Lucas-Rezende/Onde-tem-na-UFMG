@@ -1,70 +1,105 @@
 .lanchonete-screen {
-  padding: 0;
-  margin: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+  justify-items: center;
+  padding: 2rem 1rem;
   background-color: #1226AA;
-  min-height: 95vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative; /* Para posicionar o botão absolutamente */
+  min-height: 100vh;
+  gap: 2rem;
+  position: relative;
 }
 
-.lanchonete-screen button.Home {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  padding: 8px 16px;
-  background-color: #ffffff;
-  color: #7f2222;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.lanchonete-screen button.Home:hover {
-  background-color: #f0f0f0;
-}
-
-.lanchonete-screen p.titulo {
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 40px;
-  margin-top: 60px; /* Espaço para o botão */
-  margin-bottom: 2rem;
+.titulo {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
 }
 
 .search-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
+  max-width: 900px;
+  padding: 0 1rem;
+  margin: 0 auto;
 }
 
 .search-container form {
-  width: 70%;
-  max-width: 900px;
   position: relative;
+  width: 100%;
 }
 
 .search-container input {
-  padding: 12px 20px;
   width: 100%;
-  text-align: center;
+  padding: 0.9rem 2.5rem 0.9rem 1.2rem;
   border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+  font-size: 1.1rem;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  outline: none;
 }
 
-/* Adicionando ícone de busca (opcional) */
-.search-container form::after {
-  content: "🔍";
+.search-input__icon-search {
   position: absolute;
-  right: 15px;
+  right: 16px;
   top: 50%;
   transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
   pointer-events: none;
+}
+
+.icon-marmita--search svg {
+  width: 24px;
+  height: 24px;
+  fill: #888;
+}
+.fab-home {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+  z-index: 1000;
+}
+
+.fab-home:hover {
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/*  CARD LANCHONETES  */
+.lista-lanchonetes {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.lanchonete-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  color: #333;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .lista-lanchonetes {
+    grid-template-columns: 1fr;
+  }
 }
