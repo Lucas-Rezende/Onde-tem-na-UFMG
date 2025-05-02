@@ -4,13 +4,13 @@
       "Nome": "COLTEC",
       "Unidade": "COLTEC",
       "Predio": "Colégio Técnico",
-      "linkMapa" : "https://maps.app.goo.gl/UyqZidBrSjFW6mCs7'"
+      "linkMapa" : "https://maps.app.goo.gl/UyqZidBrSjFW6mCs7"
     },
     {
       "Nome": "EBA",
       "Unidade": "Escola de Belas Artes",
       "Predio": "Prédio Principal da EBA",
-      "linkMapa" : "https://maps.app.goo.gl/L4ts9gXMB2ruEBj16'"
+      "linkMapa" : "https://maps.app.goo.gl/L4ts9gXMB2ruEBj16"
     },
     {
       "Nome": "EEFFTO",
@@ -22,79 +22,79 @@
       "Nome": "ENG B1",
       "Unidade": "Escola de Engenharia",
       "Predio": "Bloco 1",
-      "linkMapa" : "https://maps.app.goo.gl/nAgSFggpLiEqUnrE7'"
+      "linkMapa" : "https://maps.app.goo.gl/nAgSFggpLiEqUnrE7"
     },
     {
       "Nome": "ENG B3",
       "Unidade": "Escola de Engenharia",
       "Predio": "Bloco 3",
-      "linkMapa" : "https://maps.app.goo.gl/nAgSFggpLiEqUnrE7'"
+      "linkMapa" : "https://maps.app.goo.gl/nAgSFggpLiEqUnrE7"
     },
     {
       "Nome": "FACE",
       "Unidade": "Faculdade de Ciências Econômicas",
       "Predio": "Prédio da FACE",
-      "linkMapa" : "https://maps.app.goo.gl/7iYXx5TW1PSKD8RbA'"
+      "linkMapa" : "https://maps.app.goo.gl/7iYXx5TW1PSKD8RbA"
     },
     {
       "Nome": "FAE",
       "Unidade": "Faculdade de Educação",
       "Predio": "Prédio da FAE",
-      "linkMapa" : "https://maps.app.goo.gl/efEPniw6ir6m5H159'"
+      "linkMapa" : "https://maps.app.goo.gl/efEPniw6ir6m5H159"
     },
     {
       "Nome": "FAFAR",
       "Unidade": "Faculdade de Farmácia",
       "Predio": "Prédio Principal",
-      "linkMapa" : "https://maps.app.goo.gl/xXqaNeFtzt3aiy3m7'"
+      "linkMapa" : "https://maps.app.goo.gl/xXqaNeFtzt3aiy3m7"
     },
     {
       "Nome": "FAFICH",
       "Unidade": "Faculdade de Filosofia e Ciências Humanas",
       "Predio": "Prédio da FAFICH",
-      "linkMapa" : "https://maps.app.goo.gl/T7vLmJAKUzH9Ef1T7'"
+      "linkMapa" : "https://maps.app.goo.gl/T7vLmJAKUzH9Ef1T7"
     },
     {
       "Nome": "FALE",
       "Unidade": "Faculdade de Letras",
       "Predio": "Prédio da FALE",
-      "linkMapa" : "https://maps.app.goo.gl/V5x7vTs5Ebzcr9768'"
+      "linkMapa" : "https://maps.app.goo.gl/V5x7vTs5Ebzcr9768"
     },
     {
       "Nome": "ICB",
       "Unidade": "Instituto de Ciências Biológicas",
       "Predio": "ICB 1",
-      "linkMapa" : "https://maps.app.goo.gl/3Z8VuCFusTzFxraY6'"
+      "linkMapa" : "https://maps.app.goo.gl/3Z8VuCFusTzFxraY6"
     },
     {
       "Nome": "ICEX",
       "Unidade": "Instituto de Ciências Exatas",
       "Predio": "Prédio Principal do ICEX",
-      "linkMapa" : "https://maps.app.goo.gl/1rTfDLoMoqQtroRw6'"
+      "linkMapa" : "https://maps.app.goo.gl/1rTfDLoMoqQtroRw6"
     },
     {
       "Nome": "MED",
       "Unidade": "Faculdade de Medicina",
       "Predio": "Prédio Principal",
-      "linkMapa" : "https://maps.app.goo.gl/2z9xDBa1fHoFRhNs9'"
+      "linkMapa" : "https://maps.app.goo.gl/2z9xDBa1fHoFRhNs9"
     },
     {
       "Nome": "Musica",
       "Unidade": "Escola de Música",
       "Predio": "Prédio da Escola de Música",
-      "linkMapa" : "https://maps.app.goo.gl/CECGdkbiPTFKg4GC8'"
+      "linkMapa" : "https://maps.app.goo.gl/CECGdkbiPTFKg4GC8"
     },
     {
       "Nome": "Praça S",
       "Unidade": "Praça de Serviços",
       "Predio": "Praça de Serviços",
-      "linkMapa" : "https://maps.app.goo.gl/SsHhTsmRjoV8gDs99'"
+      "linkMapa" : "https://maps.app.goo.gl/SsHhTsmRjoV8gDs99"
     },
     {
       "Nome": "Quimica",
       "Unidade": "Departamento de Química",
       "Predio": "Instituto de Ciências Exatas - Química",
-      "linkMapa" : "https://maps.app.goo.gl/Pq5Gx1q7ySdiEBGJ9'"
+      "linkMapa" : "https://maps.app.goo.gl/Pq5Gx1q7ySdiEBGJ9"
     },
     {
       "Nome": "UAIII",
@@ -106,7 +106,7 @@
       "Nome": "VET",
       "Unidade": "Escola de Veterinária",
       "Predio": "Prédio Principal da Veterinária",
-      "linkMapa" : "https://maps.app.goo.gl/ymYvoeiQ7sHFwv789'"
+      "linkMapa" : "https://maps.app.goo.gl/ymYvoeiQ7sHFwv789"
     }
   ]
 }
