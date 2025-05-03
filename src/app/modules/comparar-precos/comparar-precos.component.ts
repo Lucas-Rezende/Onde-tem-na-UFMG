@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-comparar-precos',
-  imports: [CommonModule], 
+  imports: [CommonModule],
   templateUrl: './comparar-precos.component.html',
   styleUrl: './comparar-precos.component.css',
   standalone: true
@@ -19,5 +19,14 @@ export class CompararPrecosComponent {
   ngOnInit() {
     this.itens.sort((a, b) => a.Item.localeCompare(b.Item));
   }
+
+  getPreco(item: any, nomeLanchonete: string): string | null {
+    const preco = item[nomeLanchonete];
+    if (!preco || preco === '-') return null;
+    return parseFloat(preco).toFixed(2);
+  }
+
+
+
 }
 
