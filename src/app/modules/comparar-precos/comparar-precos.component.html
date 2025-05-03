@@ -1,12 +1,17 @@
 <div class="comparison-container">
   <h2>Comparação de Preços</h2>
 
+  <button (click)="toggleModoVisualizacao()" class="sort-button">
+    {{ modoVisualizacao === 'alfabetica' ? 'Ordenar por Preço Médio' : 'Ordenar Alfabeticamente' }}
+  </button>
+
   <div class="table-wrapper">
     <table class="price-comparison-table">
       <thead>
         <tr>
           <th class="item-header">Item</th>
           <th *ngFor="let lanchonete of lanchonetes">{{ lanchonete.Nome }}</th>
+          <th *ngIf="modoVisualizacao === 'precoMedio'">Preço Médio</th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +24,9 @@
             <ng-template #vazio>
               <span class="nao-disponivel">-</span>
             </ng-template>
+          </td>
+          <td *ngIf="modoVisualizacao === 'precoMedio'" class="average-price">
+            R$ {{ calcularPrecoMedio(item).toFixed(2) }}
           </td>
         </tr>
       </tbody>
