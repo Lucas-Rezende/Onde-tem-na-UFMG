@@ -15,9 +15,33 @@ export class CompararPrecosComponent {
 
   itens : any [] = dataprecos;
   lanchonetes : any [] = datalanchonetes.lanchonetes;
+  modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
 
   ngOnInit() {
-    this.itens.sort((a, b) => a.Item.localeCompare(b.Item));
+    this.ordenarItens();
+  }
+
+  toggleModoVisualizacao() {
+    this.modoVisualizacao = this.modoVisualizacao === 'alfabetica' ? 'precoMedio' : 'alfabetica';
+    this.ordenarItens();
+  }
+
+  ordenarItens() {
+    if (this.modoVisualizacao === 'alfabetica') {
+      this.itens.sort((a, b) => a.Item.localeCompare(b.Item));
+    } else {
+      this.itens.sort((a, b) => this.calcularPrecoMedio(a) - this.calcularPrecoMedio(b));
+    }
+  }
+
+  calcularPrecoMedio(item: any): number {
+    const precos = this.lanchonetes
+      .map(l => item[l.Nome])
+      .filter(preco => preco && preco !== '-')
+      .map(preco => parseFloat(preco));
+    
+    if (precos.length === 0) return Infinity; // Itens sem preço vão para o final
+    return precos.reduce((sum, preco) => sum + preco, 0) / precos.length;
   }
 
   getPreco(item: any, nomeLanchonete: string): string | null {
