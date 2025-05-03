@@ -1,0 +1,38 @@
+<div class="LanchoneteInfo" *ngIf="lanchoneteDetalhes">
+  <h2 class="title">{{ lanchoneteDetalhes.Nome }}</h2>
+  <p><strong>Unidade:</strong> {{ lanchoneteDetalhes.Unidade }}</p>
+  <p><strong>Prédio:</strong> {{ lanchoneteDetalhes.Predio }}</p>
+
+  <div *ngIf="lanchoneteDetalhes.linkMapa">
+    <a [href]="lanchoneteDetalhes.linkMapa" target="_blank">Ver no Mapa</a>
+  </div>
+
+  <div *ngIf="itens.length > 0">
+    <h3>Produtos:</h3>
+    <div class="comparison-container">
+      <div class="table-wrapper">
+        <table class="price-comparison-table">
+          <thead>
+            <tr>
+              <th class="item-header">Produto</th>
+              <th>Preço</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of itens">
+              <td class="item-name">{{ item.Item }}</td>
+              <td>
+                <span *ngIf="item.Preco !== 'Preço não disponível'">
+                  R$ {{ item.Preco | currency:'BRL' }}
+                </span>
+                <span *ngIf="item.Preco === 'Preço não disponível'" class="nao-disponivel">
+                  Preço não disponível
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

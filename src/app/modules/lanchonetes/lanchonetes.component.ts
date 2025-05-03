@@ -1,14 +1,14 @@
-import datalanchonetes from '../../../assets/datalanchonetes.json';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';  // Importação necessária para usar *ngFor e *ngIf
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { Router, RouterModule } from '@angular/router';
+import datalanchonetes from '../../../assets/datalanchonetes.json';  // Supondo que os dados das lanchonetes estão aqui
 
 @Component({
   selector: 'app-lanchonetes',
-  imports: [CommonModule],
   templateUrl: './lanchonetes.component.html',
   styleUrls: ['./lanchonetes.component.css'],
+  standalone: true, // Habilitar o uso de componentes independentes
+  imports: [CommonModule, RouterModule] // Para usar ngFor e ngIf
 })
 export class LanchonetesComponent {
   searchTerm: string = '';
@@ -26,9 +26,7 @@ export class LanchonetesComponent {
     const termo = this.searchTerm.trim().toLowerCase();
     if (!termo) return this.lanchonetes;
 
-    return this.lanchonetes.filter(l =>
-      l.Nome.toLowerCase().includes(termo)
-    );
+    return this.lanchonetes.filter(l => l.Nome.toLowerCase().includes(termo));
   }
 
   trackById(index: number, lanchonete: any): number {

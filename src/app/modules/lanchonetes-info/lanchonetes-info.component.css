@@ -1,0 +1,103 @@
+.LanchoneteInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #F4F7FE;
+  padding: 40px;
+  margin: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.LanchoneteInfo .title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1226AA;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.LanchoneteInfo p {
+  font-size: 1rem;
+  color: #555;
+  margin: 5px 0;
+}
+
+.LanchoneteInfo a {
+  color: #1226AA;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.LanchoneteInfo a:hover {
+  text-decoration: underline;
+}
+
+.comparison-container {
+  padding: 20px;
+  width: 100%;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3B3B3B;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  max-width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.price-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  color: #444;
+}
+
+.price-comparison-table th,
+.price-comparison-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.price-comparison-table th {
+  background-color: #1226AA;
+  color: white;
+  font-weight: 600;
+}
+
+.item-header {
+  min-width: 200px;
+  text-align: left !important;
+}
+
+.item-name {
+  text-align: left;
+  font-weight: 500;
+}
+
+.price-comparison-table tr:nth-child(even) {
+  background-color: #F9F9F9;
+}
+
+.price-comparison-table tr:hover {
+  background-color: #F1F3F6;
+}
+
+.nao-disponivel {
+  color: #999;
+  font-style: italic;
+}
+
+.price-comparison-table td {
+  font-size: 0.95rem;
+  color: #666;
+}
