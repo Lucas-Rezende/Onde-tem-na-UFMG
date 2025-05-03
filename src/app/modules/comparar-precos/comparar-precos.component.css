@@ -57,7 +57,7 @@ h2 {
   font-size: 14px;
 }
 
-.price-comparison-table th, 
+.price-comparison-table th,
 .price-comparison-table td {
   padding: 12px 15px;
   text-align: center;
@@ -94,4 +94,30 @@ h2 {
 
 .price-comparison-table tr:hover {
   background-color: #f1f1f1;
+}
+
+.price-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.price-comparison-table th,
+.price-comparison-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.item-header {
+  background-color: #f2f2f2;
+}
+
+.item-name {
+  text-align: left;
+  font-weight: bold;
+}
+
+.nao-disponivel {
+  color: #999;
+  font-style: italic;
 }

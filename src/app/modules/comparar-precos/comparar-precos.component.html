@@ -1,31 +1,29 @@
-<!-- Using new control flow syntax -->
-<div>
-<table class="price-comparison-table">
-  <thead>
-    <tr>
-      <th class="item-header">Item</th>
-      @for (lanchonete of lanchonetes; track lanchonete) {
-        <th>{{lanchonete.nome}}</th>
-      }
-    </tr>
-  </thead>
-  <tbody>
-    @for (item of itens; track item) {
-      <tr>
-        <td class="item-name">{{item.Item}}</td>
-        @for (lanchonete of lanchonetes; track lanchonete) {
-          <td>
-            @if (item[lanchonete.codigo]) {
-              <span>R$ {{item[lanchonete.codigo] | number:'1.2-2'}}</span>
-            } @else {
-              <span class="nao-disponivel">-</span>
-            }
-          </td>
-        }
-      </tr>
-    }
-  </tbody>
-</table>
-<a href="/" class="fab-home" aria-label="Home">🏠</a>
+<div class="comparison-container">
+  <h2>Comparação de Preços</h2>
 
+  <div class="table-wrapper">
+    <table class="price-comparison-table">
+      <thead>
+        <tr>
+          <th class="item-header">Item</th>
+          <th *ngFor="let lanchonete of lanchonetes">{{ lanchonete.Nome }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of itens">
+          <td class="item-name">{{ item.Item }}</td>
+          <td *ngFor="let lanchonete of lanchonetes">
+            <ng-container *ngIf="getPreco(item, lanchonete.Nome); else vazio">
+              R$ {{ getPreco(item, lanchonete.Nome) }}
+            </ng-container>
+            <ng-template #vazio>
+              <span class="nao-disponivel">-</span>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a href="/" class="fab-home" aria-label="Home">🏠</a>
 </div>
