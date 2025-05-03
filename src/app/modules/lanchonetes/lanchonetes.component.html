@@ -23,15 +23,18 @@
 
   <div class="lista-lanchonetes">
     <div *ngFor="let lanchonete of lanchonetesFiltradas; trackBy: trackById" class="lanchonete-card">
-      <h3>{{ lanchonete.Nome }}</h3>
+      <h3>
+        <a [routerLink]="['/lanchonete', lanchonete.Nome]">{{ lanchonete.Nome }}</a>
+      </h3>
       <p><strong>Unidade:</strong> {{ lanchonete.Unidade }}</p>
-      <p><strong>Predio:</strong> {{ lanchonete.Predio}}</p>
+      <p><strong>Predio:</strong> {{ lanchonete.Predio }}</p>
       <p><strong>Local:</strong>
         <a *ngIf="lanchonete.linkMapa" [href]="lanchonete.linkMapa" target="_blank" class="map-link">
           <span class="icon-mapa">📍</span> Ver no mapa
         </a>
       </p>
     </div>
+
     </div>
 
   <a href="/" class="fab-home" aria-label="Home">🏠</a>

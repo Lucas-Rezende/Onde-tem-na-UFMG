@@ -25,8 +25,5 @@ export class CompararPrecosComponent {
     if (!preco || preco === '-') return null;
     return parseFloat(preco).toFixed(2);
   }
-
-
-
 }
 
