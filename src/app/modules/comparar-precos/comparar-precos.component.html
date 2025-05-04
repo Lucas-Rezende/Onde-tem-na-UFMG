@@ -1,24 +1,53 @@
 <div class="comparison-container">
-  <h2>Comparação de Preços</h2>
+  <header class="app-header">
+    <h1>🍔 Comparador de Preços</h1>
+    <p>Compare os preços entre as lanchonetes e faça a melhor escolha!</p>
+  </header>
 
   <div class="controls">
     <button (click)="toggleModoVisualizacao()" class="sort-button">
-      {{ modoVisualizacao === 'alfabetica' ? 'Ordenar por Preço Médio' : 'Ordenar Alfabeticamente' }}
+      {{
+        modoVisualizacao === "alfabetica"
+          ? "Ordenar por Preço Médio"
+          : "Ordenar Alfabeticamente"
+      }}
     </button>
-  
+
     <select (change)="destacarItem($event)" class="item-selector">
-      <option value="">🔍 Pesquisar Item</option>
-      <option *ngFor="let item of itens" [value]="item.Item">{{ item.Item }}</option>
+      <option value="">Selecionar Item</option>
+      <option *ngFor="let item of itens" [value]="item.Item">
+        {{ item.Item }}
+      </option>
     </select>
   </div>
+
+  <div class="highlights" *ngIf="itens.length && lanchonetes.length">
+    <div class="highlight-card">
+      <h3>Menor Preço Médio</h3>
+      <p *ngIf="lanchoneteMenorMedia; else semMedia">
+        🏆 {{ lanchoneteMenorMedia }}
+      </p>
+      <ng-template #semMedia><p>-</p></ng-template>
+    </div>
+
+    <div class="highlight-card">
+      <h3>Melhor Preço para "{{ itemSelecionado }}"</h3>
+      <p *ngIf="lanchoneteComMenorPreco && menorPreco; else semSelecionado">
+        💰 {{ lanchoneteComMenorPreco }} | R$ {{ menorPreco }}
+      </p>
+      <ng-template #semSelecionado><p>-</p></ng-template>
+    </div>
+
 
   <div class="table-wrapper">
     <table class="price-comparison-table">
       <thead>
         <tr>
           <th class="item-header">Item</th>
-          <th *ngFor="let lanchonete of lanchonetes"
-              [class.destacado]="isLanchonete(lanchonete.Nome)">
+          <th
+            *ngFor="let lanchonete of lanchonetes"
+            [class.destacado]="isLanchonete(lanchonete.Nome)"
+          >
             {{ lanchonete.Nome }}
           </th>
           <th *ngIf="modoVisualizacao === 'precoMedio'">Preço Médio</th>
@@ -27,7 +56,10 @@
       <tbody>
         <tr *ngFor="let item of itens">
           <td class="item-name">{{ item.Item }}</td>
-          <td *ngFor="let lanchonete of lanchonetes"[class.destacado]="isMenorPreco(item, lanchonete.Nome)">
+          <td
+            *ngFor="let lanchonete of lanchonetes"
+            [class.destacado]="isMenorPreco(item, lanchonete.Nome)"
+          >
             <ng-container *ngIf="getPreco(item, lanchonete.Nome); else vazio">
               R$ {{ getPreco(item, lanchonete.Nome) }}
             </ng-container>
