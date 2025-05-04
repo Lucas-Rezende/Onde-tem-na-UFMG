@@ -11,15 +11,15 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class CompararPrecosComponent {
-  itens: any[] = dataprecos; // Dados dos itens com preços
-  lanchonetes: any[] = datalanchonetes.lanchonetes; // Dados das lanchonetes
-  modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica'; // Modo de visualização: por nome ou preço médio
+  itens: any[] = dataprecos;
+  lanchonetes: any[] = datalanchonetes.lanchonetes;
+  modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
 
-  lanchoneteMenorMedia: string | null = null; // Lanchonete com menor preço médio
+  lanchoneteMenorMedia: string | null = null;
 
-  itemSelecionado: string = ''; // Item selecionado no dropdown
-  lanchoneteComMenorPreco: string | null = null; // Lanchonete com menor preço para o item selecionado
-  menorPreco: number | null = null; // Menor preço do item selecionado
+  itemSelecionado: string = '';
+  lanchoneteComMenorPreco: string | null = null;
+  menorPreco: number | null = null;
 
   ngOnInit() {
     this.ordenarItens();
@@ -48,7 +48,7 @@ export class CompararPrecosComponent {
       .filter((preco) => preco && preco !== '-')
       .map((preco) => parseFloat(preco));
 
-    if (precos.length === 0) return Infinity; // Itens sem preço vão para o final
+    if (precos.length === 0) return Infinity;
     return precos.reduce((sum, preco) => sum + preco, 0) / precos.length;
   }
 

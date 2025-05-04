@@ -23,7 +23,7 @@
               <td class="item-name">{{ item.Item }}</td>
               <td>
                 <span *ngIf="item.Preco !== 'Preço não disponível'">
-                  R$ {{ item.Preco | currency:'BRL' }}
+                  R{{ item.Preco | currency:'' }}
                 </span>
                 <span *ngIf="item.Preco === 'Preço não disponível'" class="nao-disponivel">
                   Preço não disponível
@@ -35,4 +35,6 @@
       </div>
     </div>
   </div>
+
+  <a href="/" class="fab-home" aria-label="Home">🏠</a>
 </div>

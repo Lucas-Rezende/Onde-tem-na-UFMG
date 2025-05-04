@@ -1,10 +1,17 @@
 .comparacao-screen {
   padding: 0;
   margin: 0;
-  background-color: #1226AA;
-  height: 95vh;
+  min-height: 100vh;
   color: #fff;
+
+  background-image:
+    url('../../../assets/bg_up.png'),
+    url('../../../assets/bg_down.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: top center, bottom center;
+  background-size: contain;
 }
+
 
 .comparison-container {
   padding: 20px;
@@ -16,22 +23,29 @@
 
 .app-header {
   text-align: center;
-  padding: 2rem 1rem;
-  color: #000;
-  border-radius: 0 0 16px 16px;
-  margin-bottom: 1rem;
+  margin: 2rem 0;
+  padding: 2rem 1rem 1rem;
+  z-index: 1;
+  position: relative;
+  border-radius: 16px;
 }
 
 .app-header h1 {
-  font-size: 2rem;
-  margin: 0;
+  font-size: 2.8rem;
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .app-header p {
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  color: #ccc;
+  font-size: 1.2rem;
+  color: #3a3a3a;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
+
 
 h2 {
   text-align: center;
@@ -50,6 +64,8 @@ h2 {
 
 .sort-button,
 .item-selector {
+  flex: 1 1 250px;
+  height: 48px;
   padding: 10px 20px;
   border: none;
   border-radius: 6px;

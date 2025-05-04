@@ -3,19 +3,60 @@
   grid-template-rows: auto auto 1fr;
   align-items: start;
   justify-items: center;
-  padding: 2rem 1rem;
-  background-color: #1226AA;
   min-height: 100vh;
-  gap: 2rem;
   position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0 0;
+  place-items: center;
+  background-color: #1226AA;
+
+  background-image:
+
+    url('../../../assets/bg_effect.png'),
+    url('../../../assets/bg_effect_inv.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: top center, bottom center;
+  background-size: contain;
 }
 
-.titulo {
-  font-size: 2.5rem;
-  color: white;
-  font-weight: 600;
+.destaque {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero {
   text-align: center;
-  margin: 0;
+  margin: 4rem 0;
+  padding: 4rem 1rem 1rem;
+  z-index: 1;
+  position: relative;
+  border-radius: 16px;
+}
+
+
+.titulo {
+  font-size: 2.8rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.subtitulo {
+  font-size: 1.2rem;
+  color: #dfdddd;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .search-container {
@@ -23,6 +64,8 @@
   max-width: 900px;
   padding: 0 1rem;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .search-container form {
@@ -37,8 +80,9 @@
   border-radius: 999px;
   font-size: 1.1rem;
   text-align: left;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   outline: none;
+  background-color: #f7f9fc;
 }
 
 .search-input__icon-search {
@@ -56,51 +100,58 @@
   height: 24px;
   fill: #888;
 }
-.fab-home {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 3.2rem;
-  height: 3.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: white;
-  font-size: 1.6rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  text-decoration: none;
-  transition: box-shadow 0.2s;
-  z-index: 1000;
-}
-
-.fab-home:hover {
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
 
 .lista-lanchonetes {
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   margin: 2rem auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 0 1rem;
+  justify-items: center;
 }
 
 .lanchonete-card {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 1rem;
+  background: #F3F4FB;
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 1.5rem;
   color: #333;
   text-align: left;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 0.1s);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  width: 100%;
+}
+
+.lanchonete-card:hover {
+  color: #ffffff;
+  background-color: #1226AA;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.lanchonete-card h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lanchonete-card h3 a:hover {
+  text-decoration: none;
+}
+
+.lanchonete-card p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
 }
 
 .map-link {
-  color: #0066cc;
+  color: #1226AA;
   text-decoration: none;
-  margin-left: 8px;
   font-size: 0.9em;
   display: inline-flex;
   align-items: center;
@@ -111,12 +162,50 @@
 }
 
 .icon-mapa {
+  font-weight: bold;
   margin-right: 4px;
   font-size: 1.1em;
+}
+
+.fab-home {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #ffffff;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  transition: box-shadow 0.2s;
+  z-index: 1000;
+}
+
+.fab-home:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.lanchonete-card .conheca-link {
+  font-weight: bold;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
   .lista-lanchonetes {
     grid-template-columns: 1fr;
+  }
+
+  .titulo {
+    font-size: 2rem;
   }
 }

@@ -31,7 +31,7 @@
     </div>
 
     <div class="highlight-card">
-      <h3>Melhor Preço para "{{ itemSelecionado }}"</h3>
+      <h3>Melhor Preço para {{ itemSelecionado }}</h3>
       <p *ngIf="lanchoneteComMenorPreco && menorPreco; else semSelecionado">
         💰 {{ lanchoneteComMenorPreco }} | R$ {{ menorPreco }}
       </p>
