@@ -1,5 +1,9 @@
 <div class="lanchonete-screen">
-  <p class="titulo">Conheça as lanchonetes</p>
+<div class="destaque">
+  <div class="hero">
+    <h2 class="titulo">Conheça as lanchonetes</h2>
+    <p class="subtitulo">Descubra as lanchonetes do campus e os preços dos itens.</p>
+  </div>
 
   <div class="search-container">
     <form>
@@ -22,7 +26,11 @@
   </div>
 
   <div class="lista-lanchonetes">
-    <div *ngFor="let lanchonete of lanchonetesFiltradas; trackBy: trackById" class="lanchonete-card">
+    <div
+      *ngFor="let lanchonete of lanchonetesFiltradas; let i = index; trackBy: trackById"
+      class="lanchonete-card"
+      [style.--i]="i"
+    >
       <h3>
         <a [routerLink]="['/lanchonete', lanchonete.Nome]">{{ lanchonete.Nome }}</a>
       </h3>
@@ -30,12 +38,13 @@
       <p><strong>Predio:</strong> {{ lanchonete.Predio }}</p>
       <p><strong>Local:</strong>
         <a *ngIf="lanchonete.linkMapa" [href]="lanchonete.linkMapa" target="_blank" class="map-link">
-          <span class="icon-mapa">📍</span> Ver no mapa
+          <a class="icon-mapa">📍</a> Ver no mapa
         </a>
       </p>
+      <a [routerLink]="['/lanchonete', lanchonete.Nome]" class="conheca-link">Veja preços e itens →</a>
     </div>
-
-    </div>
+  </div>
+</div>
 
   <a href="/" class="fab-home" aria-label="Home">🏠</a>
 </div>
