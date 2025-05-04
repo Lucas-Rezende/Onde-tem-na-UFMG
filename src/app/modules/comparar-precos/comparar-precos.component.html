@@ -1,23 +1,33 @@
 <div class="comparison-container">
   <h2>Comparação de Preços</h2>
 
-  <button (click)="toggleModoVisualizacao()" class="sort-button">
-    {{ modoVisualizacao === 'alfabetica' ? 'Ordenar por Preço Médio' : 'Ordenar Alfabeticamente' }}
-  </button>
+  <div class="controls">
+    <button (click)="toggleModoVisualizacao()" class="sort-button">
+      {{ modoVisualizacao === 'alfabetica' ? 'Ordenar por Preço Médio' : 'Ordenar Alfabeticamente' }}
+    </button>
+  
+    <select (change)="destacarItem($event)" class="item-selector">
+      <option value="">🔍 Pesquisar Item</option>
+      <option *ngFor="let item of itens" [value]="item.Item">{{ item.Item }}</option>
+    </select>
+  </div>
 
   <div class="table-wrapper">
     <table class="price-comparison-table">
       <thead>
         <tr>
           <th class="item-header">Item</th>
-          <th *ngFor="let lanchonete of lanchonetes">{{ lanchonete.Nome }}</th>
+          <th *ngFor="let lanchonete of lanchonetes"
+              [class.destacado]="isLanchonete(lanchonete.Nome)">
+            {{ lanchonete.Nome }}
+          </th>
           <th *ngIf="modoVisualizacao === 'precoMedio'">Preço Médio</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of itens">
           <td class="item-name">{{ item.Item }}</td>
-          <td *ngFor="let lanchonete of lanchonetes">
+          <td *ngFor="let lanchonete of lanchonetes"[class.destacado]="isMenorPreco(item, lanchonete.Nome)">
             <ng-container *ngIf="getPreco(item, lanchonete.Nome); else vazio">
               R$ {{ getPreco(item, lanchonete.Nome) }}
             </ng-container>

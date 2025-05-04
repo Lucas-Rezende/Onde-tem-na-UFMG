@@ -16,6 +16,9 @@ export class CompararPrecosComponent {
   itens : any [] = dataprecos;
   lanchonetes : any [] = datalanchonetes.lanchonetes;
   modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
+  
+  itemSelecionado: string = '';
+  lanchoneteComMenorPreco: string | null = null;
 
   ngOnInit() {
     this.ordenarItens();
@@ -49,5 +52,49 @@ export class CompararPrecosComponent {
     if (!preco || preco === '-') return null;
     return parseFloat(preco).toFixed(2);
   }
+
+  destacarItem(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    const selectedValue = target.value;
+  
+    this.itemSelecionado = selectedValue;
+    const item = this.itens.find(i => i.Item === selectedValue);
+  
+    if (!item) {
+      this.lanchoneteComMenorPreco = null;
+      return;
+    }
+  
+    let menorPreco = Infinity;
+    let lanchonete = null;
+  
+    for (let l of this.lanchonetes) {
+      const precoStr = item[l.Nome];
+      if (precoStr && precoStr !== '-') {
+        const preco = parseFloat(precoStr);
+        if (preco < menorPreco) {
+          menorPreco = preco;
+          lanchonete = l.Nome;
+        }
+      }
+    }
+  
+    this.lanchoneteComMenorPreco = lanchonete;
+
+    //console.log('Item selecionado:', selectedValue);
+    //console.log('Lanchonete com menor preco:', this.lanchoneteComMenorPreco);
+  }
+
+  isMenorPreco(item: any, lanchonete: string): boolean {
+    return item.Item === this.itemSelecionado && lanchonete === this.lanchoneteComMenorPreco;
+  }
+
+  isLanchonete(lanchonete: string): boolean {
+    //console.log('Lanchonete:', lanchonete);
+    //console.log('Lanchonete com menor preco:', this.lanchoneteComMenorPreco);
+    //console.log(lanchonete === this.lanchoneteComMenorPreco)
+    return lanchonete === this.lanchoneteComMenorPreco;
+  }
+
 }
 

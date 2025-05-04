@@ -141,3 +141,14 @@ h2 {
   font-weight: bold;
   background-color: #f8f8f8;
 }
+
+.destacado {
+  background-color: gold;
+  font-weight: bold;
+}
+
+.item-selector {
+  margin-left: 1rem;
+  padding: 0.4rem;
+  font-size: 1rem;
+}
