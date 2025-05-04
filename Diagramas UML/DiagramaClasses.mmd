@@ -1,0 +1,57 @@
+classDiagram
+
+class Lanchonete {
+  +String Nome
+  +String Unidade
+  +String Predio
+  +String linkMapa
+}
+
+class HomeComponent {
+  -NavigationPagesService navigationService
+  +GoTo(route: String): void
+}
+
+class LanchonetesInfoComponent {
+  -ActivatedRoute route
+  +Lanchonete lanchoneteDetalhes
+  +any[] itens
+  +ngOnInit(): void
+  +getPreco(item: any, nomeLanchonete: String): String | null
+}
+
+class LanchonetesComponent {
+  -Router router
+  +String searchTerm
+  +any[] lanchonetes
+  +search(e: Event): void
+  +lanchonetesFiltradas: any[]
+  +trackById(index: number, lanchonete: any): number
+  +voltar(): void
+}
+
+class CompararPrecosComponent {
+  +any[] itens
+  +any[] lanchonetes
+  +modoVisualizacao: 'alfabetica' | 'precoMedio'
+  +String itemSelecionado
+  +String lanchoneteComMenorPreco
+  +String lanchoneteMenorMedia
+  +number menorPreco
+  +ngOnInit(): void
+  +toggleModoVisualizacao(): void
+  +ordenarItens(): void
+  +calcularPrecoMedio(item: any): number
+  +getPreco(item: any, nomeLanchonete: String): String | null
+  +destacarItem(event: Event): void
+  +isMenorPreco(item: any, lanchonete: String): boolean
+  +isLanchonete(lanchonete: String): boolean
+  +calcularLanchoneteComMenorMedia(): void
+}
+
+HomeComponent --> "1" NavigationPagesService
+LanchonetesInfoComponent --> "1" ActivatedRoute
+LanchonetesInfoComponent --> "*" Lanchonete
+CompararPrecosComponent --> "*" Lanchonete
+LanchonetesComponent --> "1" Router
+LanchonetesComponent --> "*" Lanchonete
