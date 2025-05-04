@@ -1,0 +1,24 @@
+---
+config:
+  theme: redux
+---
+flowchart TD
+    A["Start"] --> B["Comparar preços"]
+    B --> n3[" "]
+    n3 -- Ordenar --> C["Escolher Ordenação"]
+    n3 -- Selecionar Item --> D["Escolher Item"]
+    C --> n4[" "]
+    n4 -- Preco Medio --> E["Ordenamento por preço médio"]
+    n4 -- Alfabetico --> F["Ordenamento por ordem alfabética"]
+    E --> n5[" "]
+    F --> n5
+    D --> n6[" "]
+    n5 --> n6
+    n6 --> G["Apresentar"]
+    G --> n7["Frames Circle"]
+    A@{ shape: f-circ}
+    n3@{ shape: diam}
+    n4@{ shape: diam}
+    n5@{ shape: diam}
+    n6@{ shape: diam}
+    n7@{ shape: fr-circ}
