@@ -12,12 +12,11 @@
   background-color: #1226AA;
 
   background-image:
-
     url('../../../assets/bg_effect.png'),
     url('../../../assets/bg_effect_inv.png');
   background-repeat: no-repeat, no-repeat;
   background-position: top center, bottom center;
-  background-size: contain;
+  background-size: auto auto, auto auto;
 }
 
 .destaque {
@@ -130,7 +129,7 @@ a {
 
 .lanchonete-card:hover {
   color: #ffffff;
-  background-color: #1226AA;
+  background-color: #394bc0;
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
@@ -150,15 +149,16 @@ a {
 }
 
 .map-link {
-  color: #1226AA;
   text-decoration: none;
+  color: inherit;
   font-size: 0.9em;
   display: inline-flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .map-link:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .icon-mapa {

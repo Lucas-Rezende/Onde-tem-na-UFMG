@@ -38,7 +38,7 @@
       <p><strong>Predio:</strong> {{ lanchonete.Predio }}</p>
       <p><strong>Local:</strong>
         <a *ngIf="lanchonete.linkMapa" [href]="lanchonete.linkMapa" target="_blank" class="map-link">
-          <a class="icon-mapa">📍</a> Ver no mapa
+          <span class="icon-mapa">📍</span> Ver no mapa
         </a>
       </p>
       <a [routerLink]="['/lanchonete', lanchonete.Nome]" class="conheca-link">Veja preços e itens →</a>
