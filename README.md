@@ -80,3 +80,94 @@
 - Exibir mensagem de confirmação informando que a atualização ocorrerá. [Wilian]
 - Salvar as sugestões em uma tabela. [Vinícius]
 - Verificar se houve mudança e notificar o administrador. [Luiza]
+
+# Diagrama de Classes
+
+O **Diagrama de Classes** e o **Diagrama de atividades** abaixo apresentam a estrutura dos principais componentes do projeto, mostrando suas propriedades, métodos, relações e o fluxo de uso.
+
+```mermaid
+classDiagram
+
+class Lanchonete {
+  +String Nome
+  +String Unidade
+  +String Predio
+  +String linkMapa
+}
+
+class HomeComponent {
+  -NavigationPagesService navigationService
+  +GoTo(route: String): void
+}
+
+class LanchonetesInfoComponent {
+  -ActivatedRoute route
+  +Lanchonete lanchoneteDetalhes
+  +any[] itens
+  +ngOnInit(): void
+  +getPreco(item: any, nomeLanchonete: String): String | null
+}
+
+class LanchonetesComponent {
+  -Router router
+  +String searchTerm
+  +any[] lanchonetes
+  +search(e: Event): void
+  +lanchonetesFiltradas: any[]
+  +trackById(index: number, lanchonete: any): number
+  +voltar(): void
+}
+
+class CompararPrecosComponent {
+  +any[] itens
+  +any[] lanchonetes
+  +modoVisualizacao: 'alfabetica' | 'precoMedio'
+  +String itemSelecionado
+  +String lanchoneteComMenorPreco
+  +String lanchoneteMenorMedia
+  +number menorPreco
+  +ngOnInit(): void
+  +toggleModoVisualizacao(): void
+  +ordenarItens(): void
+  +calcularPrecoMedio(item: any): number
+  +getPreco(item: any, nomeLanchonete: String): String | null
+  +destacarItem(event: Event): void
+  +isMenorPreco(item: any, lanchonete: String): boolean
+  +isLanchonete(lanchonete: String): boolean
+  +calcularLanchoneteComMenorMedia(): void
+}
+
+HomeComponent --> "1" NavigationPagesService
+LanchonetesInfoComponent --> "1" ActivatedRoute
+LanchonetesInfoComponent --> "*" Lanchonete
+CompararPrecosComponent --> "*" Lanchonete
+LanchonetesComponent --> "1" Router
+LanchonetesComponent --> "*" Lanchonete
+```
+
+```mermaid
+---
+config:
+  theme: redux
+---
+flowchart TD
+    A["Start"] --> B["Comparar preços"]
+    B --> n3[" "]
+    n3 -- Ordenar --> C["Escolher Ordenação"]
+    n3 -- Selecionar Item --> D["Escolher Item"]
+    C --> n4[" "]
+    n4 -- Preco Medio --> E["Ordenamento por preço médio"]
+    n4 -- Alfabetico --> F["Ordenamento por ordem alfabética"]
+    E --> n5[" "]
+    F --> n5
+    D --> n6[" "]
+    n5 --> n6
+    n6 --> G["Apresentar"]
+    G --> n7["Frames Circle"]
+    A@{ shape: f-circ}
+    n3@{ shape: diam}
+    n4@{ shape: diam}
+    n5@{ shape: diam}
+    n6@{ shape: diam}
+    n7@{ shape: fr-circ}
+```
