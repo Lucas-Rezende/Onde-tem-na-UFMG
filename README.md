@@ -81,7 +81,7 @@
 - Salvar as sugestões em uma tabela. [Vinícius]
 - Verificar se houve mudança e notificar o administrador. [Luiza]
 
-# Diagrama de Classes
+# Diagrama UML
 
 O **Diagrama de Classes** e o **Diagrama de atividades** abaixo apresentam a estrutura dos principais componentes do projeto, mostrando suas propriedades, métodos, relações e o fluxo de uso.
 
