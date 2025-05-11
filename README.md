@@ -1,4 +1,5 @@
 # Onde tem na UFMG
+![cover](https://github.com/user-attachments/assets/a88edbde-0043-4471-b3fe-a444f1346409)
 
 **Onde tem na UFMG** permite que os usuários visualizem todas as lanchonetes da UFMG, exibindo os itens e seus respectivos preços. Além disso, possibilita a comparação de preços entre produtos semelhantes de diferentes lanchonetes, facilitando a escolha mais econômica. Eventuais alterações nos valores dos itens podem ser informadas pela comunidade universitária, garantindo que as informações exibidas estejam sempre atualizadas.
 
