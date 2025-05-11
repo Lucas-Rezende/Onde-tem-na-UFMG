@@ -101,7 +101,7 @@
 .price-comparison {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 2rem;
   max-width: 100%;
   align-items: center;
   padding: 2rem 4rem;
@@ -109,6 +109,20 @@
 
 .price-comparison {
   background-color: #FAFBFD;
+}
+
+@media (max-width: 768px) {
+  .block-2 img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .lanchonetes,
+  .price-comparison {
+    padding: 1rem;
+  }
 }
 
 .block-1 h1 {
@@ -124,9 +138,7 @@
 .block-2 img {
   width: 100%;
   height: auto;
-  max-width: vh;
   border-radius: 16px;
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 @media (max-width: 768px) {

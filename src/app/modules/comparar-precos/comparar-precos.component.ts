@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
 import dataprecos from '../../../assets/dados/Tabela_com_precos.json';
 import datalanchonetes from '../../../assets/datalanchonetes.json';
 import { CommonModule } from '@angular/common';
+import { CompararPrecosService } from './../../services/CompararPrecos/comparar-precos.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-comparar-precos',
@@ -10,16 +11,17 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./comparar-precos.component.css'],
   standalone: true,
 })
-export class CompararPrecosComponent {
+export class CompararPrecosComponent implements OnInit {
   itens: any[] = dataprecos;
   lanchonetes: any[] = datalanchonetes.lanchonetes;
   modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
 
   lanchoneteMenorMedia: string | null = null;
-
   itemSelecionado: string = '';
   lanchoneteComMenorPreco: string | null = null;
   menorPreco: number | null = null;
+
+  constructor(private compararPrecosService: CompararPrecosService) {}
 
   ngOnInit() {
     this.ordenarItens();
@@ -33,29 +35,15 @@ export class CompararPrecosComponent {
   }
 
   ordenarItens() {
-    if (this.modoVisualizacao === 'alfabetica') {
-      this.itens.sort((a, b) => a.Item.localeCompare(b.Item));
-    } else {
-      this.itens.sort(
-        (a, b) => this.calcularPrecoMedio(a) - this.calcularPrecoMedio(b)
-      );
-    }
+    this.itens = this.compararPrecosService.ordenarItens(this.itens, this.modoVisualizacao, this.lanchonetes);
   }
 
   calcularPrecoMedio(item: any): number {
-    const precos = this.lanchonetes
-      .map((l) => item[l.Nome])
-      .filter((preco) => preco && preco !== '-')
-      .map((preco) => parseFloat(preco));
-
-    if (precos.length === 0) return Infinity;
-    return precos.reduce((sum, preco) => sum + preco, 0) / precos.length;
+    return this.compararPrecosService.calcularPrecoMedio(item, this.lanchonetes);
   }
 
   getPreco(item: any, nomeLanchonete: string): string | null {
-    const preco = item[nomeLanchonete];
-    if (!preco || preco === '-') return null;
-    return parseFloat(preco).toFixed(2);
+    return this.compararPrecosService.getPreco(item, nomeLanchonete);
   }
 
   destacarItem(event: Event) {
@@ -71,22 +59,9 @@ export class CompararPrecosComponent {
       return;
     }
 
-    let menorPreco = Infinity;
-    let lanchonete = null;
-
-    for (let l of this.lanchonetes) {
-      const precoStr = item[l.Nome];
-      if (precoStr && precoStr !== '-') {
-        const preco = parseFloat(precoStr);
-        if (preco < menorPreco) {
-          menorPreco = preco;
-          lanchonete = l.Nome;
-        }
-      }
-    }
-
-    this.lanchoneteComMenorPreco = lanchonete;
-    this.menorPreco = menorPreco === Infinity ? null : menorPreco;
+    const result = this.compararPrecosService.calcularLanchoneteComMenorPreco(item, this.lanchonetes);
+    this.lanchoneteComMenorPreco = result.nome;
+    this.menorPreco = result.preco;
   }
 
   isMenorPreco(item: any, lanchonete: string): boolean {
@@ -101,33 +76,18 @@ export class CompararPrecosComponent {
   }
 
   calcularLanchoneteComMenorMedia() {
-    const medias: { [nome: string]: number[] } = {};
+    this.lanchoneteMenorMedia = this.compararPrecosService.calcularLanchoneteComMenorMedia(this.itens, this.lanchonetes);
+  }
 
-    for (let item of this.itens) {
-      for (let l of this.lanchonetes) {
-        const precoStr = item[l.Nome];
-        if (precoStr && precoStr !== '-') {
-          const preco = parseFloat(precoStr);
-          if (!medias[l.Nome]) {
-            medias[l.Nome] = [];
-          }
-          medias[l.Nome].push(preco);
-        }
-      }
+  getItemId(item: any): string {
+    return this.compararPrecosService.getItemId(item);
+  }
+
+  irParaItem() {
+    const id = 'item-' + this.itemSelecionado.replace(/\s+/g, '-');
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-
-    let menorMedia = Infinity;
-    let nomeLanchonete: string | null = null;
-
-    for (let nome in medias) {
-      const media =
-        medias[nome].reduce((a, b) => a + b, 0) / medias[nome].length;
-      if (media < menorMedia) {
-        menorMedia = media;
-        nomeLanchonete = nome;
-      }
-    }
-
-    this.lanchoneteMenorMedia = nomeLanchonete;
   }
 }

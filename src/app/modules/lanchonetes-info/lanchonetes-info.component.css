@@ -10,7 +10,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
   background-image:
-  url('../../../assets/bg_down.png');
+  url('/assets/images/bg_full_dg2.png');
 background-repeat: no-repeat;
 background-position: bottom center;
 background-size: contain;
@@ -37,7 +37,7 @@ background-size: contain;
 }
 
 .LanchoneteInfo a:hover {
-  text-decoration: underline;
+  background-color: #F1F3F6;
 }
 
 .comparison-container {
@@ -125,6 +125,7 @@ h3 {
   text-decoration: none;
   transition: box-shadow 0.2s;
   z-index: 1000;
+  text-decoration: none;
 }
 
 .previous {
@@ -139,32 +140,37 @@ h3 {
   border-radius: 50%;
   background-color: #ffffff;
   font-size: 1.6rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   text-decoration: none;
-  transition: all 0.2s ease; 
+  transition: all 0.2s ease;
   z-index: 1000;
-  color: #333; 
-  cursor: pointer; 
-  border: none; 
-  outline: none; 
+  color: #333;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+a .previous {
+  text-decoration: none;
 }
 
 .previous:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-  background-color: #f8f8f8; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #f8f8f8;
 }
 
 .previous:active {
-  transform: scale(0.95); 
+  transform: scale(0.95);
 }
 
 .previous:link,
 .previous:visited,
 .previous:hover,
 .previous:active {
-  color: inherit !important; /* Inherits from .previous */
+  color: inherit !important;
 }
 
 .previous:focus {
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3); 
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }

@@ -12,7 +12,6 @@
   background-size: contain;
 }
 
-
 .comparison-container {
   padding: 20px;
   margin: 0 auto;
@@ -46,7 +45,6 @@
   line-height: 1.5;
 }
 
-
 h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -55,23 +53,25 @@ h2 {
 
 .controls {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  justify-content: center;
+  width: 100%;
+  margin: 0 0 0 0rem;
 }
 
 .sort-button,
 .item-selector {
-  flex: 1 1 250px;
+  flex: 1 1 300px;
+  min-width: 300px;
+  max-width: 50%;
   height: 48px;
   padding: 10px 20px;
   border: none;
   border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  margin: 5px;
 }
 
 .sort-button {
@@ -87,8 +87,6 @@ h2 {
 
 .item-selector {
   flex: 1 1 200px;
-  min-width: 150px;
-  max-width: 300px;
   background-color: #f8f8f8;
   color: #333;
   border: 1px solid #ddd;
@@ -115,17 +113,29 @@ h2 {
 }
 
 .highlight-card {
+  overflow: visible;
   flex: 1 1 300px;
   padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+  border: 5px solid #e0e0e0;
+  border-radius: 15px;
+  background-color: #1226AA;
+}
+
+.highlight-card:hover {
+  background-color: #0d1f94;
+  transition: background-color 0.5s ease;
+
 }
 
 .highlight-card h3 {
   margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  color: #333;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.highlight-card p {
+  font-size: 1.17rem;
+  color: #ffffff;
 }
 
 .table-wrapper {
@@ -140,7 +150,7 @@ h2 {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
-  background-color: #fff;
+  background-color: #F0F3FB;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -169,25 +179,30 @@ h2 {
 .item-name {
   text-align: left;
   font-weight: 500;
+  background-color: #1226AA;
+  color: #ffffff;
+}
+
+.price-comparison-table tr:nth-child(odd) {
   background-color: #F4F7FE;
+}
+
+.price-comparison-table tr:nth-child(even) {
+  background-color: #bdc7ff;
 }
 
 .average-price {
   font-weight: bold;
-  background-color: #F4F7FE;
   color: #444;
 }
 
 .price-comparison-table tr:nth-child(even) {
-  background-color: #F9F9F9;
+  background-color: #bdc7ff;
 }
 
 .price-comparison-table tr:hover {
-  background-color: #F1F3F6;
-}
-
-.price-comparison-table td {
-  color: #666;
+  background-color: #e0e7ff;
+  transition: background-color 0.3s ease;
 }
 
 .nao-disponivel {
@@ -221,3 +236,20 @@ h2 {
 .fab-home:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+
+/*   */
+.view-item-button {
+  margin-left: 1rem;
+  padding: 8px 15px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-item-button:hover {
+  background-color: #51a351;
+}
+
