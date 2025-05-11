@@ -14,7 +14,7 @@
     </button>
 
     <select (change)="destacarItem($event)" class="item-selector">
-      <option value="">Selecionar Item</option>
+      <option value="">Selecionar Item para comparar</option>
       <option *ngFor="let item of itens" [value]="item.Item">
         {{ item.Item }}
       </option>
@@ -34,6 +34,9 @@
       <h3>Melhor Preço para {{ itemSelecionado }}</h3>
       <p *ngIf="lanchoneteComMenorPreco && menorPreco; else semSelecionado">
         💰 {{ lanchoneteComMenorPreco }} | R$ {{ menorPreco }}
+        <button *ngIf="menorPreco" (click)="irParaItem()" class="view-item-button">
+          Ver Item
+        </button>
       </p>
       <ng-template #semSelecionado><p>-</p></ng-template>
     </div>
@@ -54,7 +57,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of itens">
+        <tr *ngFor="let item of itens" [id]="getItemId(item)">
           <td class="item-name">{{ item.Item }}</td>
           <td
             *ngFor="let lanchonete of lanchonetes"
