@@ -25,18 +25,18 @@ export class LanchonetesInfoComponent implements OnInit {
   ngOnInit(): void {
     const nomeLanchonete = this.route.snapshot.paramMap.get('nome');
 
+    
     if (nomeLanchonete) {
       const nomeLanchoneteNormalized = nomeLanchonete.trim().toUpperCase();
-
       this.lanchoneteDetalhes = datalanchonetes.lanchonetes.find(
         (l) => l.Nome.toUpperCase() === nomeLanchoneteNormalized
-      );
+       );
 
       if (this.lanchoneteDetalhes) {
         this.itens = produtos
           .map((produto) => {
-            const preco = produto[nomeLanchoneteNormalized];
-
+            const preco = produto[nomeLanchonete];
+            console.log(preco)
             return {
               Item: produto.Item,
               Preco: preco && preco !== '-' ? preco : 'Preço não disponível',
