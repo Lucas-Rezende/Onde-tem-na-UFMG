@@ -88,62 +88,71 @@ O **Diagrama de Classes** e o **Diagrama de atividades** abaixo apresentam a est
 
 ```mermaid
 classDiagram
+direction TB
+    class Lanchonete {
+	    ~~~interface~
+	    +String Nome
+	    +String Unidade
+	    +String Predio
+	    +String linkMapa
+    }
 
-class Lanchonete {
-  +String Nome
-  +String Unidade
-  +String Predio
-  +String linkMapa
-}
+    class LanchonetesInfoComponent {
+	    -ActivatedRoute route
+	    +Lanchonete lanchoneteDetalhes
+	    +any[] itens
+	    +ngOnInit()
+	    +getPreco(item, nomeLanchonete)
+    }
 
-class HomeComponent {
-  -NavigationPagesService navigationService
-  +GoTo(route: String): void
-}
+    class LanchonetesComponent {
+	    -Router router
+	    +String searchTerm
+	    +any[] lanchonetes
+	    +lanchonetesFiltradas
+	    +search(e)
+	    +trackById(index, lanchonete)
+	    +voltar()
+    }
 
-class LanchonetesInfoComponent {
-  -ActivatedRoute route
-  +Lanchonete lanchoneteDetalhes
-  +any[] itens
-  +ngOnInit(): void
-  +getPreco(item: any, nomeLanchonete: String): String | null
-}
+    class CompararPrecosComponent {
+	    -CompararPrecosService compararPrecosService
+	    +any[] itens
+	    +any[] lanchonetes
+	    +modoVisualizacao: 'alfabetica' | 'precoMedio'
+	    +String itemSelecionado
+	    +String lanchoneteComMenorPreco
+	    +String lanchoneteMenorMedia
+	    +number menorPreco
+	    +ngOnInit()
+	    +toggleModoVisualizacao()
+	    +destacarItem(event)
+	    +isMenorPreco(item, lanchonete)
+	    +isLanchonete(lanchonete)
+    }
 
-class LanchonetesComponent {
-  -Router router
-  +String searchTerm
-  +any[] lanchonetes
-  +search(e: Event): void
-  +lanchonetesFiltradas: any[]
-  +trackById(index: number, lanchonete: any): number
-  +voltar(): void
-}
+    class CompararPrecosService {
+	    +calcularPrecoMedio(item, lanchonetes)
+	    +getPreco(item, nomeLanchonete)
+	    +calcularLanchoneteComMenorMedia(itens, lanchonetes)
+      +calcularLanchoneteComMenorPreco(itens, lanchonetes)
+      +ordenarItens(itens, modo, lanchonetes)
+      +getItemId(item)
+    }
 
-class CompararPrecosComponent {
-  +any[] itens
-  +any[] lanchonetes
-  +modoVisualizacao: 'alfabetica' | 'precoMedio'
-  +String itemSelecionado
-  +String lanchoneteComMenorPreco
-  +String lanchoneteMenorMedia
-  +number menorPreco
-  +ngOnInit(): void
-  +toggleModoVisualizacao(): void
-  +ordenarItens(): void
-  +calcularPrecoMedio(item: any): number
-  +getPreco(item: any, nomeLanchonete: String): String | null
-  +destacarItem(event: Event): void
-  +isMenorPreco(item: any, lanchonete: String): boolean
-  +isLanchonete(lanchonete: String): boolean
-  +calcularLanchoneteComMenorMedia(): void
-}
+    class ActivatedRoute {
+    }
 
-HomeComponent --> "1" NavigationPagesService
-LanchonetesInfoComponent --> "1" ActivatedRoute
-LanchonetesInfoComponent --> "*" Lanchonete
-CompararPrecosComponent --> "*" Lanchonete
-LanchonetesComponent --> "1" Router
-LanchonetesComponent --> "*" Lanchonete
+    class Router {
+    }
+
+    LanchonetesInfoComponent ..> "1" ActivatedRoute
+    LanchonetesInfoComponent ..|> "*" Lanchonete
+    CompararPrecosComponent ..|> "*" Lanchonete
+    LanchonetesComponent ..> "1" Router
+    LanchonetesComponent ..|> "*" Lanchonete
+    CompararPrecosComponent --> "1" CompararPrecosService
+
 ```
 
 ```mermaid
