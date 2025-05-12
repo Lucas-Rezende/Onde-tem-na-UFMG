@@ -26,24 +26,25 @@
   </div>
 
   <div class="lista-lanchonetes">
-    <div
-      *ngFor="let lanchonete of lanchonetesFiltradas; let i = index; trackBy: trackById"
-      class="lanchonete-card"
-      [style.--i]="i"
-    >
-      <h3>
-        <a [routerLink]="['/lanchonete', lanchonete.Nome]">{{ lanchonete.Nome }}</a>
-      </h3>
+  <div
+    *ngFor="let lanchonete of lanchonetesFiltradas; let i = index; trackBy: trackById"
+    class="lanchonete-card"
+    [style.--i]="i"
+  >
+    <!-- Toda a área do card é clicável via routerLink -->
+    <a class="card-clickable-area" [routerLink]="['/lanchonete', lanchonete.Nome]">
+      <h3 class ="card-title">{{ lanchonete.Nome }}</h3>
       <p><strong>Unidade:</strong> {{ lanchonete.Unidade }}</p>
       <p><strong>Predio:</strong> {{ lanchonete.Predio }}</p>
       <p><strong>Local:</strong>
-        <a *ngIf="lanchonete.linkMapa" [href]="lanchonete.linkMapa" target="_blank" class="map-link">
-          <span class="icon-mapa">📍</span> Ver no mapa
-        </a>
+        <span *ngIf="lanchonete.linkMapa" class="map-link" (click)="$event.stopPropagation()">
+          <a [href]="lanchonete.linkMapa" target="_blank">📍 Ver no mapa</a>
+        </span>
       </p>
-      <a [routerLink]="['/lanchonete', lanchonete.Nome]" class="conheca-link">Veja preços e itens →</a>
-    </div>
+      <span class="conheca-link">Veja preços e itens →</span>
+    </a>
   </div>
+</div>
 </div>
 
   <a href="/" class="fab-home" aria-label="Home">🏠</a>
