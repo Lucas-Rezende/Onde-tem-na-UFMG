@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import datalanchonetes from '../../../assets/datalanchonetes.json';
@@ -8,7 +8,7 @@ import datalanchonetes from '../../../assets/datalanchonetes.json';
   templateUrl: './lanchonetes.component.html',
   styleUrls: ['./lanchonetes.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule]
+  imports: [RouterModule]
 })
 export class LanchonetesComponent {
   searchTerm: string = '';
