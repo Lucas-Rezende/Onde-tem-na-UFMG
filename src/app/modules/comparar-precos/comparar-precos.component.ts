@@ -1,12 +1,12 @@
 import dataprecos from '../../../assets/dados/Tabela_com_precos.json';
 import datalanchonetes from '../../../assets/datalanchonetes.json';
-import { CommonModule } from '@angular/common';
+
 import { CompararPrecosService } from './../../services/CompararPrecos/comparar-precos.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-comparar-precos',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './comparar-precos.component.html',
   styleUrls: ['./comparar-precos.component.css'],
   standalone: true,

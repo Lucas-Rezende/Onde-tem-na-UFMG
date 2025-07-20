@@ -1,43 +1,52 @@
 
-<div class="LanchoneteInfo" *ngIf="lanchoneteDetalhes">
-  <h2 class="title">{{ lanchoneteDetalhes.Nome }}</h2>
-  <p><strong>Unidade:</strong> {{ lanchoneteDetalhes.Unidade }}</p>
-  <p><strong>Prédio:</strong> {{ lanchoneteDetalhes.Predio }}</p>
-
-  <div *ngIf="lanchoneteDetalhes.linkMapa">
-    <a [href]="lanchoneteDetalhes.linkMapa" target="_blank">Ver no Mapa</a>
-  </div>
-
-  <div *ngIf="itens.length > 0">
-    <h3>Produtos:</h3>
-    <div class="comparison-container">
-      <div class="table-wrapper">
-        <table class="price-comparison-table">
-          <thead>
-            <tr>
-              <th class="item-header">Produto</th>
-              <th>Preço</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of itens">
-              <td class="item-name">{{ item.Item }}</td>
-              <td>
-                <span *ngIf="item.Preco !== 'Preço não disponível'">
-                  R{{ item.Preco | currency:'' }}
-                </span>
-                <span *ngIf="item.Preco === 'Preço não disponível'" class="nao-disponivel">
-                  Preço não disponível
-                </span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+@if (lanchoneteDetalhes) {
+  <div class="LanchoneteInfo">
+    <h2 class="title">{{ lanchoneteDetalhes.Nome }}</h2>
+    <p><strong>Unidade:</strong> {{ lanchoneteDetalhes.Unidade }}</p>
+    <p><strong>Prédio:</strong> {{ lanchoneteDetalhes.Predio }}</p>
+    @if (lanchoneteDetalhes.linkMapa) {
+      <div>
+        <a [href]="lanchoneteDetalhes.linkMapa" target="_blank">Ver no Mapa</a>
       </div>
-    </div>
+    }
+    @if (itens.length > 0) {
+      <div>
+        <h3>Produtos:</h3>
+        <div class="comparison-container">
+          <div class="table-wrapper">
+            <table class="price-comparison-table">
+              <thead>
+                <tr>
+                  <th class="item-header">Produto</th>
+                  <th>Preço</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of itens; track item) {
+                  <tr>
+                    <td class="item-name">{{ item.Item }}</td>
+                    <td>
+                      @if (item.Preco !== 'Preço não disponível') {
+                        <span>
+                          R{{ item.Preco | currency:'' }}
+                        </span>
+                      }
+                      @if (item.Preco === 'Preço não disponível') {
+                        <span class="nao-disponivel">
+                          Preço não disponível
+                        </span>
+                      }
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    }
+    <a href="/" class="fab-home" aria-label="Home">🏠</a>
+    <a href="/lanchonetes" class ="previous" aria-label ="Return">←</a>
   </div>
-
-  <a href="/" class="fab-home" aria-label="Home">🏠</a>
-  <a href="/lanchonetes" class ="previous" aria-label ="Return">←</a>
-</div>
+}
 

@@ -1,51 +1,54 @@
 <div class="lanchonete-screen">
-<div class="destaque">
-  <div class="hero">
-    <h2 class="titulo">Conheça as lanchonetes</h2>
-    <p class="subtitulo">Descubra as lanchonetes do campus e os preços dos itens.</p>
-  </div>
+  <div class="destaque">
+    <div class="hero">
+      <h2 class="titulo">Conheça as lanchonetes</h2>
+      <p class="subtitulo">Descubra as lanchonetes do campus e os preços dos itens.</p>
+    </div>
 
-  <div class="search-container">
-    <form>
-      <input type="text" placeholder="Buscar por lanchonetes" (input)="search($event)">
-      <span class="icon-marmita icon-marmita--search search-input__icon-search">
-        <svg width="48px" height="48px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g transform="translate(-432.000000, -1296.000000)" fill="#3F3E3E">
-              <g transform="translate(47.000000, 1227.000000)">
-                <g transform="translate(385.000000, 69.000000)">
-                  <path d="M22,37 C30.2842712,37 37,30.2842712 37,22 C37,13.7157288 30.2842712,7 22,7 C13.7157288,7 7,13.7157288 7,22 C7,30.2842712 13.7157288,37 22,37 Z M22,40 C12.0588745,40 4,31.9411255 4,22 C4,12.0588745 12.0588745,4 22,4 C31.9411255,4 40,12.0588745 40,22 C40,31.9411255 31.9411255,40 22,40 Z" fill-rule="nonzero"></path>
-                  <rect transform="translate(37.792893, 38.292893) rotate(-45.000000) translate(-37.792893, -38.292893) " x="36.2928932" y="32.2928932" width="3" height="12" rx="1.5"></rect>
+    <div class="search-container">
+      <form>
+        <input type="text" placeholder="Buscar por lanchonetes" (input)="search($event)">
+        <span class="icon-marmita icon-marmita--search search-input__icon-search">
+          <svg width="48px" height="48px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g transform="translate(-432.000000, -1296.000000)" fill="#3F3E3E">
+                <g transform="translate(47.000000, 1227.000000)">
+                  <g transform="translate(385.000000, 69.000000)">
+                    <path d="M22,37 C30.2842712,37 37,30.2842712 37,22 C37,13.7157288 30.2842712,7 22,7 C13.7157288,7 7,13.7157288 7,22 C7,30.2842712 13.7157288,37 22,37 Z M22,40 C12.0588745,40 4,31.9411255 4,22 C4,12.0588745 12.0588745,4 22,4 C31.9411255,4 40,12.0588745 40,22 C40,31.9411255 31.9411255,40 22,40 Z" fill-rule="nonzero"></path>
+                    <rect transform="translate(37.792893, 38.292893) rotate(-45.000000) translate(-37.792893, -38.292893) " x="36.2928932" y="32.2928932" width="3" height="12" rx="1.5"></rect>
+                  </g>
                 </g>
               </g>
             </g>
-          </g>
-        </svg>
-      </span>
-    </form>
-  </div>
-
-  <div class="lista-lanchonetes">
-  <div
-    *ngFor="let lanchonete of lanchonetesFiltradas; let i = index; trackBy: trackById"
-    class="lanchonete-card"
-    [style.--i]="i"
-  >
-    <!-- Toda a área do card é clicável via routerLink -->
-    <a class="card-clickable-area" [routerLink]="['/lanchonete', lanchonete.Nome]">
-      <h3 class ="card-title">{{ lanchonete.Nome }}</h3>
-      <p><strong>Unidade:</strong> {{ lanchonete.Unidade }}</p>
-      <p><strong>Predio:</strong> {{ lanchonete.Predio }}</p>
-      <p><strong>Local:</strong>
-        <span *ngIf="lanchonete.linkMapa" class="map-link" (click)="$event.stopPropagation()">
-          <a [href]="lanchonete.linkMapa" target="_blank">📍 Ver no mapa</a>
+          </svg>
         </span>
-      </p>
-      <span class="conheca-link">Veja preços e itens →</span>
-    </a>
+      </form>
+    </div>
+
+    <div class="lista-lanchonetes">
+      @for (lanchonete of lanchonetesFiltradas; track trackById(i, lanchonete); let i = $index) {
+        <div
+          class="lanchonete-card"
+          [style.--i]="i"
+          >
+          <!-- Toda a área do card é clicável via routerLink -->
+          <a class="card-clickable-area" [routerLink]="['/lanchonete', lanchonete.Nome]">
+            <h3 class ="card-title">{{ lanchonete.Nome }}</h3>
+            <p><strong>Unidade:</strong> {{ lanchonete.Unidade }}</p>
+            <p><strong>Predio:</strong> {{ lanchonete.Predio }}</p>
+            <p><strong>Local:</strong>
+            @if (lanchonete.linkMapa) {
+              <span class="map-link" (click)="$event.stopPropagation()">
+                <a [href]="lanchonete.linkMapa" target="_blank">📍 Ver no mapa</a>
+              </span>
+            }
+          </p>
+          <span class="conheca-link">Veja preços e itens →</span>
+        </a>
+      </div>
+    }
   </div>
 </div>
-</div>
 
-  <a href="/" class="fab-home" aria-label="Home">🏠</a>
+<a href="/" class="fab-home" aria-label="Home">🏠</a>
 </div>

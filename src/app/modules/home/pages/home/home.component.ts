@@ -1,12 +1,12 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Router } from '@angular/router';
 import { NavigationPagesService } from './../../../../services/navigation-pages/navigation-pages.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

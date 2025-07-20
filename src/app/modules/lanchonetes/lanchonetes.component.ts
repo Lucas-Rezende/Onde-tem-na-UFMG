@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';  // Importação necessária para usar *ngFor e *ngIf
+  // Importação necessária para usar *ngFor e *ngIf
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import datalanchonetes from '../../../assets/datalanchonetes.json';  // Supondo que os dados das lanchonetes estão aqui
@@ -8,7 +8,7 @@ import datalanchonetes from '../../../assets/datalanchonetes.json';  // Supondo 
   templateUrl: './lanchonetes.component.html',
   styleUrls: ['./lanchonetes.component.css'],
   standalone: true, // Habilitar o uso de componentes independentes
-  imports: [CommonModule, RouterModule] // Para usar ngFor e ngIf
+  imports: [RouterModule] // Para usar ngFor e ngIf
 })
 export class LanchonetesComponent {
   searchTerm: string = '';
