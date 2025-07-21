@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center-start;
   background-color: #F2F2F2;
   padding: 40px;
   margin: 0;
@@ -11,9 +11,11 @@
 
   background-image:
   url('/assets/images/bg_full_dg2.png');
-background-repeat: no-repeat;
-background-position: bottom center;
-background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  min-height: 80vh;
+
 }
 
 .LanchoneteInfo .title {
@@ -66,6 +68,9 @@ h3 {
   font-size: 1rem;
   color: #444;
   background-color: #F5F7FA;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .price-comparison-table th,
@@ -174,3 +179,42 @@ a .previous {
 .previous:focus {
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
 }
+
+.search-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.search-container form {
+  position: relative;
+  width: 100%;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 0.9rem 2.5rem 0.9rem 1.2rem;
+  border: none;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  outline: none;
+  background-color: #f7f9fc;
+  max-width: 800px; 
+  margin: 0 auto; 
+}
+
+.search-input__icon-search {
+  position: absolute;
+  right: -25px;
+  top: 30%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
