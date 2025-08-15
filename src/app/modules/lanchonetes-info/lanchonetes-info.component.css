@@ -13,8 +13,8 @@
   url('/assets/images/bg_full_dg2.png');
   background-repeat: no-repeat;
   background-position: bottom center;
-  background-size: contain;
-  min-height: 80vh;
+  background-size: cover;
+  min-height: 60vh;
 
 }
 
@@ -45,6 +45,8 @@
 .comparison-container {
   padding: 20px;
   width: 100%;
+  min-width: 300px; /* Largura mínima */
+
 }
 
 h3 {
@@ -63,7 +65,7 @@ h3 {
 }
 
 .price-comparison-table {
-  width: 100%;
+  width: 100% !important;
   border-collapse: collapse;
   font-size: 1rem;
   color: #444;
@@ -75,9 +77,12 @@ h3 {
 
 .price-comparison-table th,
 .price-comparison-table td {
-  padding: 12px 15px;
+  padding: 8px 10px;
   text-align: center;
   border: 1px solid #ddd;
+  width: auto;
+  min-width: 10px;
+  overflow: hidden;
 }
 
 .price-comparison-table th {
@@ -87,7 +92,7 @@ h3 {
 }
 
 .item-header {
-  min-width: 200px;
+  min-width: 150px;
   text-align: left !important;
 }
 

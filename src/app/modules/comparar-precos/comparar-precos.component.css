@@ -144,6 +144,11 @@ h2 {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   border-radius: 8px;
   background-color: #F4F7FE;
+  max-height: 70vh;
+  overflow-y: auto;
+  position: relative;
+  overscroll-behavior: contain; /* Melhora a experiência de scroll */
+
 }
 
 .price-comparison-table {
@@ -152,9 +157,23 @@ h2 {
   font-size: 1rem;
   background-color: #F0F3FB;
   border-radius: 8px;
-  overflow: hidden;
 }
 
+.price-comparison-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Linhas alternadas */
+.price-comparison-table tr:nth-child(even) {
+  background-color: #bdc7ff;
+}
+
+.price-comparison-table td:not(:first-child) {
+  width: 100px; /* Largura fixa para colunas de preço */
+  white-space: nowrap; /* Impede quebra de linha em preços */
+}
 .price-comparison-table th,
 .price-comparison-table td {
   padding: 12px 15px;
@@ -167,14 +186,27 @@ h2 {
   background-color: #1226AA;
   color: white;
   font-weight: 600;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1); /* Sombra para profundidade */
+
+}
+.price-comparison-table thead tr th:first-child {
+  position: static; /* Remove o sticky apenas para o primeiro elemento */
+  z-index: auto;
+  box-shadow: none;
 }
 
-.item-header {
-  min-width: 200px;
-  text-align: left !important;
+/* Células da primeira coluna (exceto cabeçalho) fixas */
+.price-comparison-table tbody tr td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 90;
   background-color: #1226AA;
   color: white;
+  box-shadow: 2px 0 3px rgba(0, 0, 0, 0.1);
 }
+
 
 .item-name {
   text-align: left;
