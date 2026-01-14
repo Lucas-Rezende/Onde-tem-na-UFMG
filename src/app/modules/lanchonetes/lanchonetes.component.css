@@ -11,9 +11,6 @@
   place-items: center;
   background-color: #1226AA;
 
-  background-image:
-    url('../../../assets/bg_effect.png'),
-    url('../../../assets/bg_effect_inv.png');
   background-repeat: no-repeat, no-repeat;
   background-position: top center, bottom center;
   background-size: auto auto, auto auto;

@@ -1,8 +1,7 @@
-<div>
-  <div>
-    <router-outlet></router-outlet>
-  </div>
-  <div>
+<div class="main-wrapper">
+  <router-outlet></router-outlet>
+
+  @if (showFooter()) {
     <app-footer></app-footer>
-  </div>
+  }
 </div>
