@@ -2,7 +2,7 @@
 
 *, *::before, *::after {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 html, body {
@@ -13,8 +13,6 @@ html, body {
 }
 
 .footer {
-  font-family: 'Work Sans';
-
   align-items: center;
   text-align: center;
   padding: 1vh;
