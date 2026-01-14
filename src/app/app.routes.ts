@@ -6,7 +6,7 @@ import { Error404Component } from './modules/error/pages/error-404/error-404.com
 import { LanchonetesInfoComponent } from './modules/lanchonetes-info/lanchonetes-info.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, data: { hideFooter: true } },
   { path: 'lanchonetes', component: LanchonetesComponent},
   { path: 'lanchonete/:nome', component: LanchonetesInfoComponent },
   { path: 'comparar-precos', component: CompararPrecosComponent},

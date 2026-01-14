@@ -1,74 +1,58 @@
-<div class="home-1">
-  <div class="hero">
-    <h1>Onde tem na UFMG</h1>
-    <p>Descubra as lanchonetes do campus da UFMG, compare os preços e faça a melhor escolha!</p>
-    <div class="hero-buttons">
-      <a href="#lanchonetes" class="btn primary">
-        Saiba mais
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="icon"
-        >
-          <line x1="12" y1="5" x2="12" y2="19" />
-          <polyline points="19 12 12 19 5 12" />
-        </svg>
-      </a>
-            <a href="#contact" class="btn secondary">Fale conosco</a>
-    </div>
-    <a href="#lanchonetes" class="scroll-down">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mouse-icon lucide-mouse"><rect x="5" y="2" width="14" height="20" rx="7"/><path d="M12 6v4"/></svg>
-    </a>
+<nav class="navbar justify-content-center position-absolute top-0 w-100" style="z-index: 10;">
+  <a class="navbar-brand me-0" href="#">
+    <img src="/assets/images/sec-logo.png" alt="Logo" height="25">
+  </a>
+</nav>
 
-    <div class="custom-shape-divider-bottom-1743780056">
-
-  </div>
-  </div>
-
-  <div id="lanchonetes" class="lanchonetes">
-    <div class="block-1">
-      <h1>Lanchonetes</h1>
-      <p>Explore as opções de lanchonetes no campus e confira seus preços.</p>
-      <button (click)="GoTo('/lanchonetes')" class="btn primary">Ver lanchonetes</button>
-    </div>
-    <div class="block-2">
-      <img src="/assets/images/home-a.png" alt="">
-    </div>
-  </div>
-
-  <div id="price-comparison" class="price-comparison">
-    <div class="block-2">
-      <img src="/assets/images/home-c.png" alt="">
-    </div>
-    <div class="block-1">
-      <h1>Comparador de preços</h1>
-      <p>Compare os valores das lanchonetes e escolha a melhor opção!</p>
-      <button (click)="GoTo('/comparar-precos')" class="btn primary">Comparar preços</button>
-    </div>
-  </div>
-
-  <div id="contact" class="contact">
-    <h1>Informar mudança de preços</h1>
-    <p>Entre em contato para alertar sobre eventuais mudanças de preço.</p>
-
-    <form method="POST" action="https://formsubmit.co/lucasmomede@gmail.com">
-      <input type="text" name="_honey" style="display:none">
-
-      <input type="hidden" name="_captcha" value="false">
-
-      <input type="text" name="nome" placeholder="Seu nome" required />
-      <input type="email" name="email" placeholder="Seu email" required />
-      <textarea name="mensagem" placeholder="Descreva a mudança de preço (inclua nome da lanchonete, produto e novo valor)" required></textarea>
-      <button type="submit" class="btn primary">Enviar Atualização</button>
-    </form>
-
-  </div>
-
+<div class="video-wrapper">
+  <video autoplay muted loop playsinline poster="assets/fallback-image.jpg" class="bg-video">
+    <source src="assets/videos/bg_pink_red.mp4" type="video/mp4">
+  </video>
+  <div class="video-overlay"></div>
 </div>
+
+<main class="hero-section d-flex align-items-center justify-content-center text-center">
+  <div class="container overlay-content d-flex flex-column align-items-center">
+
+    <span class="message-hero mb-5">💵 Salve seu dinheiro!</span>
+    <h1 class="title-hero display-2 text-black ">Onde tem na UFMG</h1>
+
+    <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto">
+      Descubra as lanchonetes do campus da UFMG, compare os preços e faça a <b>melhor escolha!</b>
+    </p>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4">
+      <button (click)="GoTo('/lanchonetes')" class="btn btn-primary btn-lg px-4">
+        Conheça os locais
+      </button>
+      <button (click)="GoTo('/comparar-precos')" class="btn btn-secondary btn-lg px-4 text-white">
+        Comparar preços
+      </button>
+    </div>
+
+    <div class="hero-image-container">
+       <img src="assets/images/ufmg/escola-veterinaria.jpg" class="img-fluid rounded-5 shadow-lg">
+    </div>
+
+  </div>
+</main>
+
+<!--
+	<div id="contact" class="contact">
+		<h1>Informar mudança de preços</h1>
+		<p>Entre em contato para alertar sobre eventuais mudanças de preço.</p>
+
+		<form method="POST" action="https://formsubmit.co/lucasmomede@gmail.com">
+			<input type="text" name="_honey" style="display:none">
+
+			<input type="hidden" name="_captcha" value="false">
+
+			<input type="text" name="nome" placeholder="Seu nome" required />
+			<input type="email" name="email" placeholder="Seu email" required />
+			<textarea name="mensagem"
+				placeholder="Descreva a mudança de preço (inclua nome da lanchonete, produto e novo valor)"
+				required></textarea>
+			<button type="submit" class="btn primary">Enviar Atualização</button>
+		</form>
+	</div>
+-->
