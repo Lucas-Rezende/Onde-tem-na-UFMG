@@ -1,90 +1,129 @@
-<div class="comparison-container">
-  <header class="app-header">
-    <h1>🍔 Comparador de Preços</h1>
-    <p>Compare os preços entre as lanchonetes e faça a melhor escolha!</p>
+<nav class="navbar justify-content-center position-absolute top-0 w-100 py-3" style="z-index: 10;">
+  <a class="navbar-brand m-0" href="#">
+    <img src="/assets/images/sec-logo.png" alt="Logo" height="25">
+  </a>
+</nav>
+
+<main class="container-main container-fluid min-vh-100 d-flex flex-column align-items-center mt-5 pt-5 pb-4">
+
+  <header class="text-center mb-4">
+    <h1 class="title-hero display-2 text-black">Comparador de Preços</h1>
+    <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto" style="max-width: 600px;">
+      Compare os preços entre as lanchonetes e faça a <b>melhor escolha!</b>
+    </p>
   </header>
 
-  <div class="controls">
-    <button (click)="toggleModoVisualizacao()" class="sort-button">
-      {{
-      modoVisualizacao === "alfabetica"
-      ? "Ordenar por Preço Médio"
-      : "Ordenar Alfabeticamente"
-      }}
-    </button>
+  <div class="main-info-wrapper mt-4 mb-4">
+    <div class="main-info-container d-md-flex justify-content-between align-items-center text-center text-md-start">
+      <div class="info-box first-box mb-3 mb-md-0">
+        <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+          <span class="me-2">📋</span>
+          <p class="m-0 small">Foram catalogadas <b>18 lanchonetes</b> e <br>os preços foram atualizados em
+            <b>Mar/2026</b>
+          </p>
+        </div>
+      </div>
 
-    <select (change)="destacarItem($event)" class="item-selector">
-      <option value="">Selecionar Item para comparar</option>
-      @for (item of itens; track item) {
-        <option [value]="item.Item">
-          {{ item.Item }}
-        </option>
-      }
-    </select>
+      <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+        <div class="sub-info-box highlight-box">
+          <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+            <span class="fs-4 me-2">💵</span>
+            <div class="text-start">
+              <p class="m-0 extra-small text-muted text-uppercase fw-bold">Melhor preço: {{ itemSelecionado || 'Item' }}</p>
+              <p class="m-0 small">Em: <b>{{ lanchoneteComMenorPreco || '---' }}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="sub-info-box highlight-box">
+          <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+            <span class="fs-4 me-2">💰</span>
+            <div class="text-start">
+              <p class="m-0 extra-small text-muted text-uppercase fw-bold">Melhor Preço Médio</p>
+              <p class="m-0 small">Localizado na <b>FACE</b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-info-wrapper d-flex flex-column flex-md-row w-100 gap-2 mb-4">
+    <div class="flex-fill">
+      <button (click)="toggleModoVisualizacao()" class="btn btn-outline-dark w-100 py-2 text-truncate">
+        {{ modoVisualizacao === 'alfabetica' ? '📊 Por Preço Médio' : '🔤 Alfabética' }}
+      </button>
+    </div>
+
+    <div class="flex-fill">
+      <button type="button" class="btn btn-white border w-100 py-2 d-flex justify-content-between align-items-center bg-white"
+        (click)="openModal()">
+        <span class="text-truncate px-1">
+          <i class="bi bi-search me-1"></i>
+          {{ itemSelecionado || 'Selecionar Item...' }}
+        </span>
+        <i class="bi bi-chevron-down small opacity-50"></i>
+      </button>
+    </div>
   </div>
 
   @if (itens.length && lanchonetes.length) {
-    <div class="highlights">
-      <div class="highlight-card">
-        <h3>Menor Preço Médio</h3>
-        @if (lanchoneteMenorMedia) {
-          <p>
-            🏆 {{ lanchoneteMenorMedia }}
-          </p>
-        } @else {
-          <p>-</p>
-        }
+    <div class="main-info-wrapper d-flex flex-column flex-md-row w-100 gap-3 mb-4">
+      <div class="flex-fill">
+        <div class="p-3 border rounded shadow-sm text-center bg-white h-100">
+          <small class="text-uppercase text-muted fw-bold">Menor Média</small>
+          <p class="h5 m-0 text-truncate">{{ lanchoneteMenorMedia || '-' }}</p>
+        </div>
       </div>
-      <div class="highlight-card">
-        <h3>Melhor Preço para {{ itemSelecionado }}</h3>
-        @if (lanchoneteComMenorPreco && menorPreco) {
-          <p>
-            💰 {{ lanchoneteComMenorPreco }} | R$ {{ menorPreco }}
+
+      <div class="flex-fill">
+        <div class="p-3 border rounded shadow-sm text-center bg-white h-100">
+          <small class="text-uppercase text-muted fw-bold">Preço: {{ itemSelecionado || '...' }}</small>
+          <div class="d-flex justify-content-center align-items-center gap-2">
+            <p class="h5 m-0 text-truncate">{{ lanchoneteComMenorPreco || '-' }} | R$ {{ menorPreco || '-' }}</p>
             @if (menorPreco) {
-              <button (click)="irParaItem()" class="view-item-button">
-                Ver Item
-              </button>
+              <button (click)="irParaItem()" class="btn btn-sm btn-dark px-2">Ver</button>
             }
-          </p>
-        } @else {
-          <p>-</p>
-        }
+          </div>
+        </div>
       </div>
-      <div class="table-wrapper">
-        <table class="price-comparison-table">
+    </div>
+
+    <div class="fresh-table-container shadow-sm border rounded-4 bg-white w-100 mb-5">
+      <div class="table-toolbar d-flex justify-content-between align-items-center p-3 text-white rounded-top-4">
+        <span class="fw-bold"><i class="bi bi-grid-3x3-gap me-2"></i> Grade de Preços UFMG</span>
+        <span class="badge bg-white text-primary">Mar/2026</span>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
           <thead>
             <tr>
-              <th class="item-header">Item</th>
+              <th class="sticky-header sticky-column-first">Item</th>
               @for (lanchonete of lanchonetes; track lanchonete) {
-                <th
-                  [class.destacado]="isLanchonete(lanchonete.Nome)"
-                  >
+                <th class="text-center sticky-header" [class.highlight-lanchonete]="isLanchonete(lanchonete.Nome)">
                   {{ lanchonete.Nome }}
                 </th>
               }
               @if (modoVisualizacao === 'precoMedio') {
-                <th>Preço Médio</th>
+                <th class="text-center sticky-header bg-light text-dark">Média</th>
               }
             </tr>
           </thead>
           <tbody>
             @for (item of itens; track item) {
               <tr [id]="getItemId(item)">
-                <td class="item-name">{{ item.Item }}</td>
+                <td class="fw-bold sticky-column-first bg-white">{{ item.Item }}</td>
                 @for (lanchonete of lanchonetes; track lanchonete) {
-                  <td
-                    [class.destacado]="isMenorPreco(item, lanchonete.Nome)"
-                    >
+                  <td class="text-center" [class.table-success-highlight]="isMenorPreco(item, lanchonete.Nome)">
                     @if (getPreco(item, lanchonete.Nome)) {
-                      R$ {{ getPreco(item, lanchonete.Nome) }}
+                      <span class="price-text">R$ {{ getPreco(item, lanchonete.Nome) }}</span>
                     } @else {
-                      <span class="nao-disponivel">-</span>
+                      <span class="text-muted opacity-25">-</span>
                     }
                   </td>
                 }
                 @if (modoVisualizacao === 'precoMedio') {
-                  <td class="average-price">
-                    R$ {{ calcularPrecoMedio(item).toFixed(2) }}
+                  <td class="text-center fw-bold text-primary bg-light">
+                    {{ calcularPrecoMedio(item).toFixed(2) }}
                   </td>
                 }
               </tr>
@@ -92,6 +131,36 @@
           </tbody>
         </table>
       </div>
-      <a href="/" class="fab-home" aria-label="Home">🏠</a>
     </div>
+
+    <a href="/" class="btn btn-dark rounded-circle shadow-lg fab-home">
+      <i class="bi bi-house"></i>
+    </a>
   }
+
+  <div class="modal fade" id="itemPickerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="fw-bold px-2 pt-2">O que você procura?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-3">
+          <div class="list-group list-group-flush">
+            @for (item of itens; track item) {
+              <button type="button" class="list-group-item list-group-item-action border-0 rounded-3 mb-1 py-3"
+                [class.active-item]="item.Item === itemSelecionado" (click)="selectByModal(item.Item)">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>{{ item.Item }}</span>
+                  @if (item.Item === itemSelecionado) {
+                    <i class="bi bi-check-lg text-primary"></i>
+                  }
+                </div>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

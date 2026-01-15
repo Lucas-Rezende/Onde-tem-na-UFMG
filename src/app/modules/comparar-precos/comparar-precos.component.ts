@@ -3,6 +3,7 @@ import datalanchonetes from '../../../assets/datalanchonetes.json';
 
 import { CompararPrecosService } from './../../services/CompararPrecos/comparar-precos.service';
 import { Component, OnInit } from '@angular/core';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-comparar-precos',
@@ -15,6 +16,7 @@ export class CompararPrecosComponent implements OnInit {
   itens: any[] = dataprecos;
   lanchonetes: any[] = datalanchonetes.lanchonetes;
   modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
+  private modalInstance: any;
 
   lanchoneteMenorMedia: string | null = null;
   itemSelecionado: string = '';
@@ -88,6 +90,39 @@ export class CompararPrecosComponent implements OnInit {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  aplicarSelecao(itemName: string) {
+    if (!itemName) return;
+
+    this.itemSelecionado = itemName;
+    const item = this.itens.find((i) => i.Item === itemName);
+
+    if (item) {
+      const result = this.compararPrecosService.calcularLanchoneteComMenorPreco(item, this.lanchonetes);
+      this.lanchoneteComMenorPreco = result.nome;
+      this.menorPreco = result.preco;
+    } else {
+      this.lanchoneteComMenorPreco = null;
+      this.menorPreco = null;
+    }
+  }
+
+  openModal() {
+    const modalElement = document.getElementById('itemPickerModal');
+    if (modalElement) {
+      if (!this.modalInstance) {
+        this.modalInstance = new bootstrap.Modal(modalElement);
+      }
+      this.modalInstance.show();
+    }
+  }
+
+  selectByModal(itemName: string) {
+    this.aplicarSelecao(itemName);
+    if (this.modalInstance) {
+      this.modalInstance.hide();
     }
   }
 }
