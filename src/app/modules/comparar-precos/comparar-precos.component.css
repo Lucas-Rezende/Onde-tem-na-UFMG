@@ -8,9 +8,19 @@
 }
 
 .title-hero {
-  font-size: 2.4rem;
+  font-size: 2rem;
   letter-spacing: -.04em;
   font-weight: 400;
+}
+
+.secondary-message-hero {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .secondary-message-hero {
+    font-size: 0.85rem;
+  }
 }
 
 .table-container {
@@ -117,7 +127,28 @@
 }
 /* ------------------------------------------------------------- */
 
+/* ------------------ BOTÃO DE ITEM/ORDENAR ------------------ */
+.btn-order-items{
+  width: fit-content;
+}
+
+.bg-preco-medio {
+  background-color: #32CE3C !important;
+  color: #ffffff !important;
+}
+
+.bg-alfabetica {
+  background-color: #1226AA !important;
+  color: #ffffff !important;
+}
+/* ------------------------------------------------------------- */
+
+
 /* ------------------ TABELA ------------------ */
+.table-item-price {
+  font-size: 0.85rem;
+}
+
 .fresh-table-container {
   overflow: hidden;
   border: 1px solid #edf2f7;
@@ -139,7 +170,7 @@
   background-color: #f8f9fa !important;
   border-bottom: 2px solid #dee2e6 !important;
   color: #1226AA;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 1rem !important;
@@ -166,7 +197,7 @@
 }
 
 .price-text {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
 }
 
 .table-hover tbody tr:hover {
