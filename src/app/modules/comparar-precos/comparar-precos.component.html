@@ -6,14 +6,14 @@
 
 <main class="container-main container-fluid min-vh-100 d-flex flex-column align-items-center mt-5 pt-5 pb-4">
 
-  <header class="text-center">
+  <header class="text-center fade-in-up">
     <h1 class="title-hero display-2 text-black">Comparador de Preços</h1>
     <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto" style="max-width: 600px;">
       Compare os preços entre as lanchonetes e faça a <b>melhor escolha!</b>
     </p>
   </header>
 
-  <div class="main-info-wrapper mt-4 mb-4">
+  <div class="main-info-wrapper mt-4 mb-4 fade-in-up delay-1">
     <div class="main-info-container d-md-flex justify-content-between align-items-center text-center text-md-start">
       <div class="info-box first-box mb-3 mb-md-0">
         <div class="d-flex align-items-center justify-content-center justify-content-md-start">
@@ -28,15 +28,12 @@
         <div class="sub-info-box highlight-box">
           <div class="d-flex align-items-center justify-content-center justify-content-md-start">
             <span class="fs-4 me-2">💵</span>
-
             <div class="text-center text-md-start">
               <p class="m-0 extra-small text-muted text-uppercase fw-bold">
                 Melhor preço: {{ itemSelecionado || 'Item' }}
               </p>
-
               <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2">
                 <p class="m-0 small">Em: <b>{{ lanchoneteComMenorPreco || '---' }}</b></p>
-
                 @if (menorPreco) {
                 <button (click)="irParaItem()" class="btn btn-sm btn-dark py-0 px-2 fw-bold"
                   style="font-size: 0.65rem; height: 1.4rem; line-height: 1.4rem; min-width: fit-content;">
@@ -60,7 +57,7 @@
     </div>
   </div>
 
-  <div class="main-info-wrapper d-flex flex-column flex-md-row w-100 gap-2 mb-4">
+  <div class="main-info-wrapper d-flex flex-column flex-md-row w-100 gap-2 mb-4 fade-in-up delay-2">
     <div class="flex-fill">
       <button type="button"
         class="btn btn-white border w-100 py-2 d-flex justify-content-between align-items-center bg-white"
@@ -82,7 +79,7 @@
     </div>
   </div>
 
-  <div class="table-item-price fresh-table-container shadow-sm border rounded-4 bg-white w-100 mb-5">
+  <div class="table-item-price fresh-table-container shadow-sm border rounded-4 bg-white w-100 mb-5 fade-in-up delay-3">
     <div class="table-toolbar d-flex justify-content-between align-items-center p-3 text-white rounded-top-4">
       <span class="fw-bold"><i class="bi bi-grid-3x3-gap me-2"></i> Grade de Preços UFMG</span>
       <span class="badge bg-white text-primary">Mar/2026</span>
@@ -129,7 +126,7 @@
   </div>
 
   <a href="/" class="btn btn-dark rounded-circle shadow-lg fab-home">
-    <i class="bi bi-house"></i>
+    <i class="bi bi-house text-white"></i>
   </a>
 
   <div class="modal fade" id="itemPickerModal" tabindex="-1" aria-hidden="true">
