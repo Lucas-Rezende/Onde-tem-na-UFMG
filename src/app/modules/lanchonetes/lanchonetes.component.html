@@ -1,54 +1,83 @@
-<div class="lanchonete-screen">
-  <div class="destaque">
-    <div class="hero">
-      <h2 class="titulo">Conheça as lanchonetes</h2>
-      <p class="subtitulo">Descubra as lanchonetes do campus e os preços dos itens.</p>
-    </div>
+<nav class="navbar justify-content-center position-absolute top-0 w-100 py-3" style="z-index: 10;">
+  <a class="navbar-brand m-0" href="#">
+    <img src="/assets/images/sec-logo.png" alt="Logo" height="25">
+  </a>
+</nav>
 
-    <div class="search-container">
-      <form>
-        <input type="text" placeholder="Buscar por lanchonetes" (input)="search($event)">
-        <span class="icon-marmita icon-marmita--search search-input__icon-search">
-          <svg width="48px" height="48px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <g transform="translate(-432.000000, -1296.000000)" fill="#3F3E3E">
-                <g transform="translate(47.000000, 1227.000000)">
-                  <g transform="translate(385.000000, 69.000000)">
-                    <path d="M22,37 C30.2842712,37 37,30.2842712 37,22 C37,13.7157288 30.2842712,7 22,7 C13.7157288,7 7,13.7157288 7,22 C7,30.2842712 13.7157288,37 22,37 Z M22,40 C12.0588745,40 4,31.9411255 4,22 C4,12.0588745 12.0588745,4 22,4 C31.9411255,4 40,12.0588745 40,22 C40,31.9411255 31.9411255,40 22,40 Z" fill-rule="nonzero"></path>
-                    <rect transform="translate(37.792893, 38.292893) rotate(-45.000000) translate(-37.792893, -38.292893) " x="36.2928932" y="32.2928932" width="3" height="12" rx="1.5"></rect>
-                  </g>
-                </g>
-              </g>
-            </g>
-          </svg>
-        </span>
-      </form>
-    </div>
+<main class="container-main container-fluid min-vh-100 d-flex flex-column align-items-center mt-5 pt-5 pb-4">
 
-    <div class="lista-lanchonetes">
-      @for (lanchonete of lanchonetesFiltradas; track trackById(i, lanchonete); let i = $index) {
-        <div
-          class="lanchonete-card"
-          [style.--i]="i"
-          >
-          <!-- Toda a área do card é clicável via routerLink -->
-          <a class="card-clickable-area" [routerLink]="['/lanchonete', lanchonete.Nome]">
-            <h3 class ="card-title">{{ lanchonete.Nome }}</h3>
-            <p><strong>Unidade:</strong> {{ lanchonete.Unidade }}</p>
-            <p><strong>Predio:</strong> {{ lanchonete.Predio }}</p>
-            <p><strong>Local:</strong>
-            @if (lanchonete.linkMapa) {
-              <span class="map-link" (click)="$event.stopPropagation()">
-                <a [href]="lanchonete.linkMapa" target="_blank">📍 Ver no mapa</a>
-              </span>
-            }
+  <header class="text-center mb-4 fade-in-up">
+    <h1 class="title-hero display-2 text-black">Conheça os estabelecimentos</h1>
+    <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto" style="max-width: 600px;">
+      Descubra os estabelecimentos do campus e os preços dos itens.
+    </p>
+  </header>
+
+  <div class="search-wrapper w-100 fade-in-up delay-1">
+    <div class="search-container position-relative mx-auto">
+      <i class="bi bi-search search-icon"></i>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Buscar por estabelecimentos..."
+        (input)="search($event)"
+        #searchInput
+      >
+      @if (searchInput.value) {
+        <button class="clear-search-btn" (click)="searchInput.value = ''; search($event)">
+          <i class="bi bi-x-circle-fill"></i>
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="main-info-wrapper mt-4 mb-4 fade-in-up delay-2">
+    <div class="main-info-container d-md-flex justify-content-between align-items-center text-center text-md-start">
+
+      <div class="info-box first-box mb-3 mb-md-0">
+        <div class="d-flex align-items-center justify-content-center justify-content-md-start">
+          <span class="me-3 fs-4">📋</span>
+          <p class="m-0 small">
+            Foram catalogadas <b>18 estabelecimentos</b> e <br class="d-none d-md-block">
+            os preços foram atualizados em <b>Mar/2026</b>
           </p>
-          <span class="conheca-link">Veja preços e itens →</span>
-        </a>
+        </div>
       </div>
+
+      <div class="info-box mb-0">
+        <div class="progress-widget-container">
+          <div class="progress-gradient-bar">
+            <div class="progress-handle" style="left: 78%;"></div>
+          </div>
+          <p class="m-0 mt-2 extra-small text-muted text-center text-md-end">
+            Mais de 78% dos estabelecimentos estão com os <br class="d-none d-md-block">
+            dados atualizados. Ajude a chegar em 100% <b>aqui.</b>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="lista-lanchonetes w-100">
+    @for (lanchonete of lanchonetesFiltradas; track lanchonete; let i = $index) {
+    <a [routerLink]="['/lanchonete', lanchonete.Nome]" class="lanchonete-card" [style.--i]="i">
+      <div class="card-content d-flex flex-column justify-content-between h-100 p-4">
+        <div>
+          <h3 class="h5 fw-bold mb-1 text-white">{{ lanchonete.Nome }}</h3>
+          <p class="m-0 extra-small text-white-50 text-uppercase fw-bold">{{ lanchonete.Unidade }}</p>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-end">
+          <p class="m-0 extra-small text-white-50">{{ lanchonete.Predio }}</p>
+          <span class="fw-bold extra-small text-white">ITENS →</span>
+        </div>
+      </div>
+    </a>
     }
   </div>
-</div>
 
-<a href="/" class="fab-home" aria-label="Home">🏠</a>
-</div>
+  <a href="/" class="btn btn-dark rounded-circle shadow-lg fab-home">
+    <i class="bi bi-house text-white"></i>
+  </a>
+</main>
