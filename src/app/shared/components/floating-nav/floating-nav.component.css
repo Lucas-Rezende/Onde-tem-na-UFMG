@@ -1,0 +1,30 @@
+.fab-home,
+.fab-back {
+    position: fixed;
+    bottom: 1.5rem;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab-home {
+    right: 1.5rem;
+    background-color: #212529 !important;
+    border: none;
+}
+
+.fab-back {
+    left: 1.5rem;
+    background-color: #ffffff !important;
+    border: 1px solid #edf2f7;
+}
+
+.fab-home:hover,
+.fab-back:hover {
+    transform: scale(1.05);
+}
