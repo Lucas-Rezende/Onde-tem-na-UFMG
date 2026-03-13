@@ -1,80 +1,54 @@
-@if (lanchoneteDetalhes) {
-  <div class="LanchoneteInfo">
-    <h2 class="title">{{ lanchoneteDetalhes.Nome }}</h2>
-    <p><strong>Unidade:</strong> {{ lanchoneteDetalhes.Unidade }}</p>
-    <p><strong>Prédio:</strong> {{ lanchoneteDetalhes.Predio }}</p>
-    @if (lanchoneteDetalhes.linkMapa) {
-      <div>
-        <a [href]="lanchoneteDetalhes.linkMapa" target="_blank">Ver no Mapa</a>
-      </div>
-    }
-    @if (itens.length > 0) {
-      <div>
-        <h3>Produtos:</h3>
-        <div class="search-container">
-          <form>
-            <input 
-              type="text" 
-              placeholder="Buscar produtos..." 
-              (input)="search($event)"
-              [value]="searchTerm"
-            >
-            <span class="icon-marmita icon-marmita--search search-input__icon-search">
-              <svg width="48px" height="48px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g transform="translate(-432.000000, -1296.000000)" fill="#3F3E3E">
-                    <g transform="translate(47.000000, 1227.000000)">
-                      <g transform="translate(385.000000, 69.000000)">
-                        <path d="M22,37 C30.2842712,37 37,30.2842712 37,22 C37,13.7157288 30.2842712,7 22,7 C13.7157288,7 7,13.7157288 7,22 C7,30.2842712 13.7157288,37 22,37 Z M22,40 C12.0588745,40 4,31.9411255 4,22 C4,12.0588745 12.0588745,4 22,4 C31.9411255,4 40,12.0588745 40,22 C40,31.9411255 31.9411255,40 22,40 Z" fill-rule="nonzero"></path>
-                        <rect transform="translate(37.792893, 38.292893) rotate(-45.000000) translate(-37.792893, -38.292893) " x="36.2928932" y="32.2928932" width="3" height="12" rx="1.5"></rect>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-            </span>
-          </form>
-        </div>
-        <div class="comparison-container">
-          <div class="table-wrapper">
-            <table class="price-comparison-table">
-              <thead>
-                <tr>
-                  <th class="item-header">Produto</th>
-                  <th>Preço</th>
-                </tr>
-              </thead>
-              <tbody>
-                @for (item of lanchesFiltrados; track item.Item) {
-                  <tr>
-                    <td class="item-name">{{ item.Item }}</td>
-                    <td>
-                      @if (item.Preco !== 'Preço não disponível') {
-                        <span>
-                          R$ {{ item.Preco }}
-                        </span>
-                      }
-                      @if (item.Preco === 'Preço não disponível') {
-                        <span class="nao-disponivel">
-                          Preço não disponível
-                        </span>
-                      }
-                    </td>
-                  </tr>
-                }
-                @if (lanchesFiltrados.length === 0) {
-                  <tr>
-                    <td colspan="2" class="no-results">Nenhum produto encontrado</td>
-                  </tr>
-                }
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    }
-    <a href="/" class="fab-home" aria-label="Home">🏠</a>
-    <a href="/lanchonetes" class="previous" aria-label="Return">←</a>
-  </div>
-}
+<app-minimalist-navbar></app-minimalist-navbar>
 
+@if (lanchoneteDetalhes) {
+    <main class="container-fluid d-flex flex-column align-items-center mt-5 p-3">
+        <header class="text-center mb-4 fade-in-up mt-3">
+            <h1 class="title-hero display-2 text-black">{{ lanchoneteDetalhes.Nome }}</h1>
+            <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto">
+                <span class="badge bg-light text-dark border m-2 fw-normal">{{ lanchoneteDetalhes.Unidade }}</span>
+                <br><span class="small">{{ lanchoneteDetalhes.Predio }}</span>
+            </p>
+            @if (lanchoneteDetalhes.linkMapa) {
+                <a [href]="lanchoneteDetalhes.linkMapa" target="_blank"
+                    class="small text-decoration-none mt-2 d-inline-block fw-bold main-blue">
+                    <i class="bi bi-geo-alt-fill me-1"></i>Ver no Mapa
+                </a>
+            }
+        </header>
+
+        @if (itens.length > 0) {
+            <div class="w-100 fade-in-up mx-auto mb-4" style="max-width: 1200px;">
+                <div class="w-100 mb-4">
+                    <app-search-bar 
+                        placeholder="Buscar produtos..." 
+                        (searchChange)="search($event)"> 
+                    </app-search-bar>
+                </div>
+                <div class="info-box p-4 menu-bg">
+                    <h3 class="h6 fw-black mb-4 main-blue text-uppercase border-bottom border-dark pb-2 d-inline-block" style="letter-spacing: 0.2em">Produtos</h3>
+
+                    <div class="menu-grid mt-3">
+                        @for (item of lanchesFiltrados; track item.Item) {
+                            <div class="d-flex justify-content-between align-items-center py-3 border-bottom menu-item">
+                                <span class="fw-bold text-dark pe-3 text-uppercase small">{{ item.Item }}</span>
+                                <span class="price-tag fw-bold main-blue text-end">
+                                    @if (item.Preco !== 'Preço não disponível') {
+                                    R$&nbsp;{{ item.Preco }}
+                                    } @else {
+                                        <small class="text-muted fst-italic fw-normal">Indisponível</small>
+                                    }
+                                </span>
+                            </div>
+                        }
+                    </div>
+
+                    @if (lanchesFiltrados.length === 0) {
+                        <div class="text-center py-5 text-muted fst-italic">Nenhum produto encontrado.</div>
+                    }
+                </div>
+            </div>
+        }
+
+        <app-floating-nav backRoute="/lanchonetes"></app-floating-nav>
+    </main>
+}
