@@ -1,0 +1,15 @@
+<div class="search-container position-relative mx-auto">
+  <i class="bi bi-search search-icon"></i>
+  <input
+    type="text"
+    class="search-input"
+    [placeholder]="placeholder"
+    (input)="onInput($event)"
+    #searchInput
+  >
+  @if (searchInput.value) {
+    <button class="clear-search-btn" (click)="clearSearch(searchInput)">
+      <i class="bi bi-x-circle-fill"></i>
+    </button>
+  }
+</div>
