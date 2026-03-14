@@ -30,20 +30,28 @@
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     column-gap: 3rem;
     row-gap: 0;
 }
 
 .menu-item {
     border-color: #eceae4 !important;
+    gap: 1rem; 
+}
+
+.product-info {
+    font-size: 0.9rem;
+}
+
+.item-name {
+    word-break: break-word; 
 }
 
 .price-tag {
     white-space: nowrap;
     flex-shrink: 0;
-    min-width: 85px;
-    font-size: 1.05rem;
+    font-size: 1rem;
 }
 
 .tracking-wide {
