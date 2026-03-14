@@ -1,0 +1,57 @@
+<app-minimalist-navbar></app-minimalist-navbar>
+
+<main class="container-main container-fluid d-flex flex-column align-items-center mt-5 pt-5 pb-4">
+    <header class="text-center mb-4 fade-in-up">
+        <h1 class="title-hero display-2 text-black">Contato</h1>
+        <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto" style="max-width: 600px;">
+            Dê sugestões e alerte sobre mudanças de preço.
+        </p>
+    </header>
+
+    <div class="w-100 fade-in-up mx-auto mb-4" style="max-width: 800px;">
+        <div class="info-box p-4 p-md-5 menu-bg">
+            @if (formStatus === 'success') {
+                <div class="text-center py-5 fade-in-up">
+                    <h4 class="fw-black main-blue text-uppercase tracking-wide mt-3">Mensagem Enviada!</h4>
+                    <p class="text-muted mt-2">Obrigado pelo contato.</p>
+                    <button (click)="resetForm()"
+                        class="btn custom-btn fw-bold text-uppercase mt-4 py-2 px-4 tracking-wide">
+                        Enviar outra mensagem
+                    </button>
+                </div>
+            } @else {
+                <form [formGroup]="contatoForm" (ngSubmit)="onSubmit()" class="d-flex flex-column gap-3">
+                    <div>
+                        <label for="nome" class="form-label fw-bold text-dark text-uppercase small mb-1">Nome</label>
+                        <input type="text" id="nome" formControlName="nome" class="form-control custom-input py-2"
+                            placeholder="Nome">
+                    </div>
+
+                    <div>
+                        <label for="email" class="form-label fw-bold text-dark text-uppercase small mb-1">E-mail</label>
+                        <input type="email" id="email" formControlName="email" class="form-control custom-input py-2"
+                            placeholder="seu@email.com">
+                    </div>
+
+                    <div>
+                        <label for="mensagem"
+                            class="form-label fw-bold text-dark text-uppercase small mb-1">Mensagem</label>
+                        <textarea id="mensagem" formControlName="mensagem" class="form-control custom-input py-2" rows="5"
+                            placeholder="Como podemos ajudar?"></textarea>
+                    </div>
+
+                    <button type="submit" [disabled]="contatoForm.invalid || formStatus === 'submitting'"
+                        class="btn custom-btn fw-bold text-uppercase mt-4 py-3 tracking-wide">
+                        {{ formStatus === 'submitting' ? 'Enviando...' : 'Enviar Mensagem' }}
+                    </button>
+                @if (formStatus === 'error') {
+                    <div class="text-danger small mt-2 text-center fw-bold">
+                        Ocorreu um erro ao enviar. Tente novamente.
+                    </div>
+                }
+            </form>
+            }
+        </div>
+    </div>
+    <app-floating-nav backRoute="/"></app-floating-nav>
+</main>
