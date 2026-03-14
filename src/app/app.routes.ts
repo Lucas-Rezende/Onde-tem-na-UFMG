@@ -4,11 +4,13 @@ import { LanchonetesComponent } from './modules/lanchonetes/lanchonetes.componen
 import { CompararPrecosComponent } from './modules/comparar-precos/comparar-precos.component';
 import { Error404Component } from './modules/error/pages/error-404/error-404.component';
 import { LanchonetesInfoComponent } from './modules/lanchonetes-info/lanchonetes-info.component';
+import { ContatoComponent } from './modules/contato/contato.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, data: { hideFooter: true } },
   { path: 'lanchonetes', component: LanchonetesComponent},
   { path: 'lanchonete/:nome', component: LanchonetesInfoComponent },
   { path: 'comparar-precos', component: CompararPrecosComponent},
+  { path: 'contato', component: ContatoComponent},
   { path: '**', component: Error404Component }
 ];

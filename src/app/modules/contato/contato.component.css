@@ -1,0 +1,45 @@
+.container-main {
+  max-width: 100%;
+}
+
+.title-hero {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.secondary-message-hero {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .secondary-message-hero {
+    font-size: 0.85rem;
+  }
+}
+
+.custom-input {
+    background-color: transparent;
+    border: 1.5px solid #5a5a5a70;
+    border-radius: 6px;
+}
+
+.custom-input:focus {
+    background-color: #ffffff;
+    border-color: #1226aa;
+    box-shadow: 0 0 0 0.25rem rgba(18, 38, 170, 0.15); 
+}
+
+.custom-btn {
+    background-color: #1226aa;
+    color: #ffffff;
+    border: 2px solid #1226aa;
+    border-radius: 6px;
+    transition: all 0.2s ease-out;
+}
+
+.custom-btn:hover {
+    background-color: #fcfcfc; 
+    color: #1226aa;
+    box-shadow: 4px 4px 0px rgba(18, 38, 170, 0.8);
+    transform: translateY(-2px);
+}

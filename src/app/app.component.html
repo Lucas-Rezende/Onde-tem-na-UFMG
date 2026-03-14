@@ -1,7 +1,9 @@
-<div class="main-wrapper">
-  <router-outlet></router-outlet>
+<div class="main-wrapper d-flex flex-column min-vh-100">
+	<main class="flex-grow-1">
+        <router-outlet></router-outlet>
+    </main>
 
-  @if (showFooter()) {
-    <app-footer></app-footer>
-  }
+	@if (showFooter()) {
+		<app-footer></app-footer>
+	}
 </div>
