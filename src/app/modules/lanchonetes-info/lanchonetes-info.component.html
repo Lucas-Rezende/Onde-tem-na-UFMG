@@ -29,11 +29,11 @@
 
                     <div class="menu-grid mt-3">
                         @for (item of lanchesFiltrados; track item.Item) {
-                            <div class="d-flex justify-content-between align-items-center py-3 border-bottom menu-item">
-                                <span class="fw-bold text-dark pe-3 text-uppercase small">{{ item.Item }}</span>
+                            <div class="product-info d-flex justify-content-between align-items-center py-3 border-bottom menu-item">
+                                <span class="item-name fw-bold text-dark text-uppercase small flex-grow-1">{{ item.Item }}</span>            
                                 <span class="price-tag fw-bold main-blue text-end">
                                     @if (item.Preco !== 'Preço não disponível') {
-                                    R$&nbsp;{{ item.Preco }}
+                                        R$&nbsp;{{ item.Preco }}
                                     } @else {
                                         <small class="text-muted fst-italic fw-normal">Indisponível</small>
                                     }
