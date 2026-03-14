@@ -1,21 +1,28 @@
 /* CONTEÚDO GLOBAL */
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	font-family: 'Inter', sans-serif;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+html,
+body {
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
 }
 
 .footer {
-  align-items: center;
-  text-align: center;
-  padding: 1vh;
-  background-color: #e3e2eb;
-  color: #202020;
+	font-size: 0.9rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	min-height: 50px;
+	padding: 1vh;
+	background-color: #e3e2eb;
+	color: #202020;
 }
