@@ -1,11 +1,17 @@
 @if (showBack) {
-  <a [routerLink]="backRoute" class="btn btn-light rounded-circle shadow-lg fab-back border" aria-label="Voltar">
-      <i class="bi bi-arrow-left text-dark"></i>
-  </a>
+<a [routerLink]="backRoute" class="btn btn-light rounded-circle shadow-lg fab-back border" aria-label="Voltar">
+	<i class="bi bi-arrow-left text-dark"></i>
+</a>
 }
 
 @if (showHome) {
-  <a routerLink="/" class="btn btn-dark rounded-circle shadow-lg fab-home" aria-label="Home">
-      <i class="bi bi-house text-white"></i>
-  </a>
+<a routerLink="/" class="btn btn-dark rounded-circle shadow-lg fab-home" aria-label="Home">
+	<i class="bi bi-house text-white"></i>
+</a>
+}
+
+@if (showTop) {
+<a routerLink="/" class="btn btn-dark rounded-circle shadow-lg fab-arrow-up" aria-label="Top">
+	<i class="bi bi-house text-white"></i>
+</a>
 }
