@@ -1,5 +1,6 @@
 .fab-home,
-.fab-back {
+.fab-back,
+.fab-top {
     position: fixed;
     bottom: 1.5rem;
     width: 55px;
@@ -18,13 +19,15 @@
     border: none;
 }
 
-.fab-back {
+.fab-back,
+.fab-top {
     left: 1.5rem;
     background-color: #ffffff !important;
     border: 1px solid #edf2f7;
 }
 
 .fab-home:hover,
-.fab-back:hover {
+.fab-back:hover,
+.fab-top:hover {
     transform: scale(1.05);
 }

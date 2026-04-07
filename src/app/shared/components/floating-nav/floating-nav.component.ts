@@ -12,4 +12,5 @@ export class FloatingNavComponent {
   @Input() backRoute: string = '/';
   @Input() showBack: boolean = true;
   @Input() showHome: boolean = true;
+  @Input() showTop: boolean = true;
 }
