@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:Onde-tem-na-UFMG": "node dist/onde-tem-na-ufmg/server/server.mjs",
+    "serve:ssr:Onde-tem-na-UFMG": "node dist/onde-tem-na-ufmg/server/server.mjs"
   },
   "private": true,
   "dependencies": {
