@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import datalanchonetes from '../../../assets/datalanchonetes.json';
+import { NOMEM } from 'dns';
 
 @Component({
   selector: 'app-lanchonetes',
@@ -14,6 +15,7 @@ export class LanchonetesComponent {
   searchTerm: string = '';
 
   lanchonetes: any[] = datalanchonetes.lanchonetes;
+  somenteVR: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -21,11 +23,23 @@ export class LanchonetesComponent {
     const target = e.target as HTMLInputElement;
     this.searchTerm = target.value;
   }
+  
+   atualizarFiltroVR(e: Event): void {
+    const input = e.target as HTMLInputElement;
+    this.somenteVR = input.checked;
+  }
 
   get lanchonetesFiltradas() {
     const termo = this.searchTerm.trim().toLowerCase();
-    if (!termo) return this.lanchonetes;
+    const vr = this.somenteVR;
 
+    if(vr){
+      if (!termo){
+      return this.lanchonetes.filter(l=> l.AceitaVr === "Sim");
+      }
+      return this.lanchonetes.filter(l=> l.AceitaVr === "Sim" && l.Nome.toLowerCase().includes(termo))
+    }
+    if (!termo) return this.lanchonetes;
     return this.lanchonetes.filter(l => l.Nome.toLowerCase().includes(termo));
   }
 

@@ -8,6 +8,14 @@
                 <span class="badge bg-light text-dark border m-2 fw-normal">{{ lanchoneteDetalhes.Unidade }}</span>
                 <br><span class="small">{{ lanchoneteDetalhes.Predio }}</span>
             </p>
+            @if (lanchoneteDetalhes.AceitaVr == "Sim"){
+                <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto">
+                <span class="badge bg-light text-dark border m-2 fw-normal">Essa Lanchonete Aceita Vale Refeição</span>
+            }
+            @if (lanchoneteDetalhes.AceitaVr == "Não"){
+                <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto">
+                <span class="badge bg-light text-dark border m-2 fw-normal">Essa Lanchonete Não Aceita Vale Refeição</span> 
+            }
             @if (lanchoneteDetalhes.linkMapa) {
                 <a [href]="lanchoneteDetalhes.linkMapa" target="_blank"
                     class="small text-decoration-none mt-2 d-inline-block fw-bold main-blue">

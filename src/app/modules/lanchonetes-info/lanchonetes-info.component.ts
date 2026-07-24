@@ -12,6 +12,7 @@ interface Lanchonete {
 	Unidade: string;
 	Predio: string;
 	linkMapa: string;
+	AceitaVr: string;
 }
 
 interface ItemCardapio {
