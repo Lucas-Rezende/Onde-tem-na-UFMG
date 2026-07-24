@@ -30,9 +30,14 @@
       }
     </div>
   </div>
-  <div class="form-check form-switch">
-    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" (change)="atualizarFiltroVR($event)">
-    <label class="form-check-label" for="switchCheckDefault">Somente Aceita VR</label>
+  <div class="mt-3 fade-in-up delay-1">
+    <div class="vr-filter form-check form-switch">
+      <input class="form-check-input vr-filter-input" type="checkbox" role="switch" id="switchCheckDefault" (change)="atualizarFiltroVR($event)">
+      <label class="form-check-label vr-filter-label" for="switchCheckDefault">
+        <span class="vr-filter-icon">VR</span>
+        <span>Aceita VR</span>
+      </label>
+    </div>
   </div>  
   <div class="main-info-wrapper mt-4 mb-4 fade-in-up delay-2">
     <div class="main-info-container d-md-flex justify-content-between align-items-center text-center text-md-start">

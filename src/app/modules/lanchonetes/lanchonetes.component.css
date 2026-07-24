@@ -28,7 +28,7 @@ a {
   color: inherit !important;
 }
 
-/* --- SEARCH BAR --- */
+/* --- SEARCH BAR e VR FILTER --- */
 .search-wrapper {
   max-width: 600px;
   perspective: 1000px;
@@ -50,11 +50,53 @@ a {
   box-shadow: 0 15px 30px rgba(18, 38, 170, 0.1);
   border-color: rgba(18, 38, 170, 0.2);
 }
-.form-check{
-  border-color: rgba(0, 0, 0, 0.05);
-  color:rgba(4, 4, 4, 0.911);
-  input-border-radius: .25em;
+
+.vr-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0.65rem 1rem;
+  background: #ffffff;
+  border: 1px solid #f1f1f1;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
+
+.vr-filter .vr-filter-input {
+  width: 2.75rem;
+  height: 1.45rem;
+  margin: 0;
+  background-color: #edf2f7;
+  cursor: pointer;
+}
+
+.vr-filter .vr-filter-input:checked {
+  background-color: #1226AA;
+  border-color: #1226AA;
+}
+
+.vr-filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.vr-filter-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1226AA 0%, #394bc0 100%);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
 .search-icon {
   color: #1226AA;
   margin-left: 10px;

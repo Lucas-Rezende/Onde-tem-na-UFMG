@@ -10,11 +10,11 @@
             </p>
             @if (lanchoneteDetalhes.AceitaVr == "Sim"){
                 <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto">
-                <span class="badge bg-light text-dark border m-2 fw-normal">Essa Lanchonete Aceita Vale Refeição</span>
+                <span class="vr-status-badge vr-status-yes m-2">Essa lanchonete aceita Vale Refeição</span>
             }
             @if (lanchoneteDetalhes.AceitaVr == "Não"){
                 <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto">
-                <span class="badge bg-light text-dark border m-2 fw-normal">Essa Lanchonete Não Aceita Vale Refeição</span> 
+                <span class="vr-status-badge vr-status-no m-2">Essa lanchonete não aceita Vale Refeição</span> 
             }
             @if (lanchoneteDetalhes.linkMapa) {
                 <a [href]="lanchoneteDetalhes.linkMapa" target="_blank"
