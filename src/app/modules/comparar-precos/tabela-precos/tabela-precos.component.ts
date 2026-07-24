@@ -43,7 +43,6 @@ export class TabelaPrecosComponent implements OnInit {
     const mapeamento: {[key: string]: string} = {
       'Lanchonete Coltec': 'COLTEC',
       'Lanchonete Praça de Serviço': 'Praça S',
-      // Adicione outros mapeamentos necessários
     };
 
     return mapeamento[nome] || 

@@ -28,7 +28,6 @@ export class AppComponent {
       }),
       mergeMap(route => route.data)
     ).subscribe(data => {
-      // Handle the scroll reset
       if (typeof window !== 'undefined') {
         window.scrollTo(0, 0);
       }

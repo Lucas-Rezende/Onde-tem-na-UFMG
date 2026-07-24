@@ -1,4 +1,3 @@
-  // Importação necessária para usar *ngFor e *ngIf
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import datalanchonetes from '../../../assets/datalanchonetes.json';
