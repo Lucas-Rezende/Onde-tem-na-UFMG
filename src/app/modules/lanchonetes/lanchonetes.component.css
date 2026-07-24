@@ -50,7 +50,11 @@ a {
   box-shadow: 0 15px 30px rgba(18, 38, 170, 0.1);
   border-color: rgba(18, 38, 170, 0.2);
 }
-
+.form-check{
+  border-color: rgba(0, 0, 0, 0.05);
+  color:rgba(4, 4, 4, 0.911);
+  input-border-radius: .25em;
+}
 .search-icon {
   color: #1226AA;
   margin-left: 10px;
