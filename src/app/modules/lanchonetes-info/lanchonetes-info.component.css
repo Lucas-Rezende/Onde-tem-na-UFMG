@@ -99,3 +99,20 @@
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
 }
+
+.customColor {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 1rem;
+    background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7700,
+        #c45cbe,
+        #8b00ff
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
