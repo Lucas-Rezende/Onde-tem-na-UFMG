@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { FloatingNavComponent } from '../../shared/components/floating-nav/floating-nav.component';
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
 import { MinimalistNavbarComponent } from '../../shared/components/minimalist-navbar/minimalist-navbar.component';
+import { CompararPrecosService } from './../../services/CompararPrecos/comparar-precos.service';
+
 
 interface Lanchonete {
 	Nome: string;
@@ -19,6 +21,7 @@ interface ItemCardapio {
 	Item: string;
 	Preco: string | number;
 	Normalized: string;
+	menorValor: string | number;
 }
 
 @Component({
@@ -48,7 +51,7 @@ export class LanchonetesInfoComponent implements OnInit {
 			.toLowerCase();
 	}
 
-	constructor(private route: ActivatedRoute) { }
+	constructor(private route: ActivatedRoute, private compararPrecosService: CompararPrecosService) { }
 
 	ngOnInit(): void {
 		const nomeLanchonete = this.route.snapshot.paramMap.get('nome');
@@ -67,7 +70,8 @@ export class LanchonetesInfoComponent implements OnInit {
 						return {
 							Item: produto.Item,
 							Preco: preco && preco !== '-' ? parseFloat(preco).toFixed(2) : 'Preço não disponível',
-							Normalized: this.normalizeString(produto.Item)
+							Normalized: this.normalizeString(produto.Item),
+							menorValor: this.compararPrecosService.CalcularMinimoGlobal(produto, datalanchonetes.lanchonetes)
 						};
 					})
 					.filter((item) => item.Preco !== 'Preço não disponível');

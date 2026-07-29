@@ -85,4 +85,15 @@ export class CompararPrecosService {
   getItemId(item: any): string {
     return 'item-' + item.Item.replace(/\s+/g, '-');
   }
+
+  CalcularMinimoGlobal(Item: any, lanchonete: any){
+    const preco = lanchonete
+    .map((l) => Item[l.Nome])
+    .filter((preco) => preco && preco != '-')
+    .map((preco)=> parseFloat(preco))
+
+    if(preco.length === 0) return '-';
+    
+    return preco.reduce((min, preco) => preco < min ? preco : min).toFixed(2);
+  }
 }
