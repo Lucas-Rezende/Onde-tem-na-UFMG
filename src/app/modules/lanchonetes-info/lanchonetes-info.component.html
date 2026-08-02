@@ -33,13 +33,18 @@
                     </app-search-bar>
                 </div>
                 <div class="info-box p-4 menu-bg">
-                <div class="d-flex justify-content-between align-items-center border-bottom border-dark pb-3 mb-4">
-                    <h3 class="h6 fw-black m-0 main-blue text-uppercase" style="letter-spacing: 0.2em">
-                        Produtos
-                    </h3>
-                    <h3 class="h6 fw-black m-0 main-blue text-uppercase" style="letter-spacing: 0.2em">
-                        Menor Preço
-                    </h3>
+                <div class="menu-heading border-bottom border-dark pb-3 mb-4">
+                    <div class="d-flex justify-content-between align-items-center gap-3">
+                        <h3 class="h6 fw-black m-0 main-blue text-uppercase" style="letter-spacing: 0.2em">
+                            Produtos
+                        </h3>
+                        <h3 class="h6 fw-black m-0 main-blue text-uppercase text-end" style="letter-spacing: 0.2em">
+                            Preço / Menor preço
+                        </h3>
+                    </div>
+                    <p class="price-legend m-0 mt-2">
+                        O valor em azul é o da respectiva lanchonete. O valor em vermelho mostra o menor preço encontrado no campus para aquele produto.
+                    </p>
                     </div>
                     <div class="menu-grid mt-3">
                         @for (item of lanchesFiltrados; track item.Item) {
@@ -52,7 +57,7 @@
                                         <small class="text-muted fst-italic fw-normal">Indisponível</small>
                                     }
                                 </span>
-                                <span class="min-global-value fw-bold customColor text-end">R$&nbsp;{{item.menorValor}}</span>
+                                <span class="min-global-value text-end">R$&nbsp;{{item.menorValor}}</span>
                             </div>
                         }
                     </div>

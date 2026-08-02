@@ -15,6 +15,7 @@ declare var bootstrap: any;
 export class CompararPrecosComponent implements OnInit {
     itens: any[] = dataprecos;
     lanchonetes: any[] = datalanchonetes.lanchonetes;
+    totalLanchonetes = this.lanchonetes.length;
     modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
     private modalInstance: any;
 

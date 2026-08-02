@@ -14,6 +14,7 @@ export class LanchonetesComponent {
   searchTerm: string = '';
 
   lanchonetes: any[] = datalanchonetes.lanchonetes;
+  totalLanchonetes = this.lanchonetes.length;
   somenteVR: boolean = false;
 
   constructor(private router: Router) {}

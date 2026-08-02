@@ -18,8 +18,7 @@
       <div class="info-box first-box mb-3 mb-md-0">
         <div class="d-flex align-items-center justify-content-center justify-content-md-start">
           <span class="me-2">📋</span>
-          <p class="m-0 small">Foram catalogadas <b>18 lanchonetes</b> e <br>os preços foram atualizados em
-            <b>Mar/2026</b>
+          <p class="m-0 small">Foram catalogadas <b>{{ totalLanchonetes }} lanchonetes</b>
           </p>
         </div>
       </div>
@@ -49,7 +48,7 @@
             <span class="fs-4 me-2">💰</span>
             <div class="text-center text-md-start">
               <p class="m-0 extra-small text-muted text-uppercase fw-bold">Melhor Preço Médio</p>
-              <p class="m-0 small">Localizado na <b>FACE</b></p>
+              <p class="m-0 small">Localizado na <b>{{ lanchoneteMenorMedia || '---' }}</b></p>
             </div>
           </div>
         </div>
@@ -85,7 +84,7 @@
         <span class="table-kicker">Comparação por item</span>
         <h2 class="table-title m-0"><i class="bi bi-grid-3x3-gap me-2"></i>Grade de Preços UFMG</h2>
       </div>
-      <span class="table-date-badge">Mar/2026</span>
+      <span class="table-date-badge">{{ totalLanchonetes }} lanchonetes</span>
     </div>
     <div class="table-responsive">
       <table class="table price-table align-middle mb-0">
