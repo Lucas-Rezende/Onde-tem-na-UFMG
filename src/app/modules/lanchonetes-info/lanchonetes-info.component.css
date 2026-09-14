@@ -59,7 +59,7 @@
 
 .menu-item {
     border-color: #eceae4 !important;
-    gap: 1rem; 
+    gap: 1rem;
 }
 
 .price-legend {
@@ -75,7 +75,7 @@
 }
 
 .item-name {
-    word-break: break-word; 
+    word-break: break-word;
 }
 
 .price-tag {
@@ -122,6 +122,53 @@
     color: #b42318;
     font-size: 0.82rem;
     font-weight: 800;
+}
+
+.date-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: #eef3ff;
+  color: #1226AA;
+  border: 1px solid #d5ddfb;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.date-status-badge i {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.date-status-badge:hover {
+  background: #e0e8ff;
+  box-shadow: 0 4px 10px rgba(18, 38, 170, 0.12);
+}
+
+.date-status-badge.date-recent {
+  background: #effdf1;
+  color: #13921f;
+  border-color: #c4f0c8;
+}
+
+.date-status-badge.date-old {
+  background: #fff4e5;
+  color: #b26a00;
+  border-color: #ffd8a8;
+}
+
+@media (max-width: 576px) {
+  .date-status-badge {
+    font-size: 0.65rem;
+    padding: 0.28rem 0.6rem;
+  }
+  .date-status-badge i {
+    font-size: 0.72rem;
+  }
 }
 
 @media (max-width: 576px) {
