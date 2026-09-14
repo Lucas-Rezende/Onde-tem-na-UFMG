@@ -5,7 +5,7 @@
       "Unidade": "COLTEC",
       "Predio": "Colégio Técnico",
       "linkMapa": "https://maps.app.goo.gl/UyqZidBrSjFW6mCs7",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -13,7 +13,7 @@
       "Unidade": "Escola de Belas Artes",
       "Predio": "Prédio Principal da EBA",
       "linkMapa": "https://maps.app.goo.gl/L4ts9gXMB2ruEBj16",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -21,7 +21,7 @@
       "Unidade": "Escola de Educação Física, Fisioterapia e Terapia Ocupacional",
       "Predio": "Prédio Principal da EEFFTO",
       "linkMapa": "https://maps.app.goo.gl/5cAoxM8QeJU6MdS56",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -29,7 +29,7 @@
       "Unidade": "Escola de Engenharia",
       "Predio": "Bloco 1",
       "linkMapa": "https://maps.app.goo.gl/nAgSFggpLiEqUnrE7",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -37,7 +37,7 @@
       "Unidade": "Escola de Engenharia",
       "Predio": "Bloco 3",
       "linkMapa": "https://maps.app.goo.gl/nAgSFggpLiEqUnrE7",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -45,7 +45,7 @@
       "Unidade": "Faculdade de Ciências Econômicas",
       "Predio": "Prédio da FACE",
       "linkMapa": "https://maps.app.goo.gl/7iYXx5TW1PSKD8RbA",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2026-09-10T00:00:00.000Z"
     },
     {
@@ -53,7 +53,7 @@
       "Unidade": "Faculdade de Educação",
       "Predio": "Prédio da FAE",
       "linkMapa": "https://maps.app.goo.gl/efEPniw6ir6m5H159",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -61,7 +61,7 @@
       "Unidade": "Faculdade de Farmácia",
       "Predio": "Prédio Principal",
       "linkMapa": "https://maps.app.goo.gl/xXqaNeFtzt3aiy3m7",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -69,7 +69,7 @@
       "Unidade": "Faculdade de Filosofia e Ciências Humanas",
       "Predio": "Prédio da FAFICH",
       "linkMapa": "https://maps.app.goo.gl/T7vLmJAKUzH9Ef1T7",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -77,7 +77,7 @@
       "Unidade": "Faculdade de Letras",
       "Predio": "Prédio da FALE",
       "linkMapa": "https://maps.app.goo.gl/V5x7vTs5Ebzcr9768",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2026-09-10T00:00:00.000Z"
     },
     {
@@ -93,7 +93,7 @@
       "Unidade": "Instituto de Ciências Exatas",
       "Predio": "Prédio Principal do ICEX",
       "linkMapa": "https://maps.app.goo.gl/1rTfDLoMoqQtroRw6",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2026-09-10T00:00:00.000Z"
     },
     {
@@ -101,7 +101,7 @@
       "Unidade": "Faculdade de Medicina",
       "Predio": "Prédio Principal",
       "linkMapa": "https://maps.app.goo.gl/2z9xDBa1fHoFRhNs9",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -109,7 +109,7 @@
       "Unidade": "Escola de Música",
       "Predio": "Prédio da Escola de Música",
       "linkMapa": "https://maps.app.goo.gl/CECGdkbiPTFKg4GC8",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -117,7 +117,7 @@
       "Unidade": "Praça de Serviços",
       "Predio": "Praça de Serviços",
       "linkMapa": "https://maps.app.goo.gl/SsHhTsmRjoV8gDs99",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -125,7 +125,7 @@
       "Unidade": "Departamento de Química",
       "Predio": "Instituto de Ciências Exatas - Química",
       "linkMapa": "https://maps.app.goo.gl/Pq5Gx1q7ySdiEBGJ9",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -133,7 +133,7 @@
       "Unidade": "Unidade Administrativa III",
       "Predio": "UAIII",
       "linkMapa": "https://maps.app.goo.gl/LA4BDP6ydbmbzFYk6",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     },
     {
@@ -141,7 +141,7 @@
       "Unidade": "Escola de Veterinária",
       "Predio": "Prédio Principal da Veterinária",
       "linkMapa": "https://maps.app.goo.gl/ymYvoeiQ7sHFwv789",
-      "AceitaVr": "Sim",
+      "AceitaVr": "Não",
       "UltimaDataAtualizacao": "2024-03-01T00:00:00.000Z"
     }
   ]

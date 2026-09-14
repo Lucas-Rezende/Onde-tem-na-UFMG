@@ -67,7 +67,7 @@ export class LanchonetesInfoComponent implements OnInit {
 				if (this.lanchoneteDetalhes) {
 					this.itens = produtos
 						.map((produto) => {
-							const preco = produto[this.lanchoneteDetalhes!.Nome.toUpperCase()];
+							const preco = produto[this.lanchoneteDetalhes!.Nome];
 							return {
 								Item: produto.Item,
 								Preco: preco && preco !== '-' ? parseFloat(preco).toFixed(2) : 'Preço não disponível',
