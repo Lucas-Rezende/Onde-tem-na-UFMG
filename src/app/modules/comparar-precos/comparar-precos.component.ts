@@ -13,12 +13,14 @@ declare var bootstrap: any;
     standalone: true,
 })
 export class CompararPrecosComponent implements OnInit {
-    itens: any[] = dataprecos;
+    itensOriginais: any[] = dataprecos;
+    itens: any[] = [];
     lanchonetes: any[] = datalanchonetes.lanchonetes;
     totalLanchonetes = this.lanchonetes.length;
     modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
     private modalInstance: any;
 
+   private readonly MIN_LANCHONETES = 3; //controla minimo de lanchonetes que oferecem o item
     lanchoneteMenorMedia: string | null = null;
     itemSelecionado: string = '';
     lanchoneteComMenorPreco: string | null = null;
@@ -37,10 +39,26 @@ export class CompararPrecosComponent implements OnInit {
         this.ordenarItens();
     }
 
-    ordenarItens() {
-        this.itens = this.compararPrecosService.ordenarItens(this.itens, this.modoVisualizacao, this.lanchonetes);
+    private ordenarItens() {
+        const ordenados = this.compararPrecosService.ordenarItens(
+            [...this.itensOriginais],
+            this.modoVisualizacao,
+            this.lanchonetes
+        );
+        this.itens = ordenados.filter(
+            item => this.contarLanchonetesComPreco(item) >= this.MIN_LANCHONETES
+        );
     }
 
+    private contarLanchonetesComPreco(item: any): number {
+        let total = 0;
+        for (const chave of Object.keys(item)) {
+            if (chave === 'Item') continue;
+            const valor = parseFloat(item[chave]);
+            if (!isNaN(valor) && valor > 0) total++;
+        }
+        return total;
+    }
     calcularPrecoMedio(item: any): number {
         return this.compararPrecosService.calcularPrecoMedio(item, this.lanchonetes);
     }
@@ -65,7 +83,15 @@ export class CompararPrecosComponent implements OnInit {
         const result = this.compararPrecosService.calcularLanchoneteComMenorPreco(item, this.lanchonetes);
         this.lanchoneteComMenorPreco = result.nome;
         this.menorPreco = result.preco;
-    }
+  }
+
+  limparFiltro(event: Event) {
+    this.itemSelecionado = '';
+    this.lanchoneteComMenorPreco = null;
+    this.menorPreco = null;
+    this.modoVisualizacao = 'alfabetica';
+    this.ordenarItens();
+  }
 
     isMenorPreco(item: any, lanchonete: string): boolean {
         return (

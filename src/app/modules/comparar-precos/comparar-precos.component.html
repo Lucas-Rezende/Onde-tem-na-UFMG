@@ -57,7 +57,7 @@
   </div>
 
   <div class="main-info-wrapper d-flex flex-column flex-md-row w-100 gap-2 mb-4 fade-in-up delay-2">
-    <div class="flex-fill">
+    <div class="flex-grow-1">
       <button type="button"
         class="btn btn-white border w-100 py-2 d-flex justify-content-between align-items-center bg-white"
         (click)="openModal()">
@@ -69,13 +69,28 @@
       </button>
     </div>
 
-    <div class="flex-fill">
-      <button (click)="toggleModoVisualizacao()" class="btn w-100 py-2 text-truncate btn-order-items"
+    <div class="flex-shrink-0">
+      <button type="button"
+        class="btn btn-outline-secondary w-100 py-2 bg-blue"
+        (click)="limparFiltro($event)">
+        <i class="bi bi-filter"></i>
+        Limpar
+      </button>
+    </div>
+
+    <div class="flex-shrink-0">
+      <button (click)="toggleModoVisualizacao()"
+        class="btn w-100 py-2 text-truncate btn-order-items"
         [class.bg-preco-medio]="modoVisualizacao === 'precoMedio'"
         [class.bg-alfabetica]="modoVisualizacao !== 'precoMedio'">
         {{ modoVisualizacao === 'alfabetica' ? '📊 Por Preço Médio' : '🔤 Alfabética' }}
       </button>
     </div>
+
+    <small class="text-muted">
+      Mostrando {{ itens.length }} de {{ itensOriginais.length }} itens
+    </small>
+
   </div>
 
   <div class="table-item-price fresh-table-container w-100 mb-5 fade-in-up delay-3">

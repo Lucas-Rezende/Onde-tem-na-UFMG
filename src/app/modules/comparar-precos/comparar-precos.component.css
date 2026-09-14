@@ -175,7 +175,7 @@ a { text-decoration: none !important; color: inherit !important; }
   font-size: 1.4rem; z-index: 1000;
   background-color: #212529 !important;
 }
-
+.flex-fill { flex: 1 1 0 !important; min-width: 0; }
 .fab-home i { color: #ffffff !important; }
 
 @media (max-width: 576px) {

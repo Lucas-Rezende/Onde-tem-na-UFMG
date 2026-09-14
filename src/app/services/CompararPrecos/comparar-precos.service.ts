@@ -86,14 +86,25 @@ export class CompararPrecosService {
     return 'item-' + item.Item.replace(/\s+/g, '-');
   }
 
-  CalcularMinimoGlobal(Item: any, lanchonete: any){
-    const preco = lanchonete
-    .map((l) => Item[l.Nome])
-    .filter((preco) => preco && preco != '-')
-    .map((preco)=> parseFloat(preco))
+  CalcularMinimoGlobal(item: any, lanchonetes: any[]) {
+    const agora = Date.now();
+    const LIMITE_DIAS = 500; //limite de datas para não comparar lanchonetes não atualizadas recentemente
 
-    if(preco.length === 0) return '-';
-    
-    return preco.reduce((min, preco) => preco < min ? preco : min).toFixed(2);
+    const precos = lanchonetes
+      .filter((l) => {
+        const data = new Date(l.UltimaDataAtualizacao);
+        if (isNaN(data.getTime())) return false;
+        const dias = (agora - data.getTime()) / (1000 * 60 * 60 * 24);
+        return dias <= LIMITE_DIAS;
+      })
+      .map((l) => item[l.Nome])
+      .filter((p) => p !== undefined && p !== null && p !== '' && p !== '-')
+      .map((p) => parseFloat(p))
+      .filter((p) => !isNaN(p));
+
+    if (precos.length === 0) return '-';
+
+    const min = Math.min(...precos);
+    return min.toFixed(2);
   }
 }

@@ -14,7 +14,8 @@ interface Lanchonete {
 	Unidade: string;
 	Predio: string;
 	linkMapa: string;
-	AceitaVr: string;
+  AceitaVr: string;
+  UltimaDataAtualizacao: string;
 }
 
 interface ItemCardapio {
@@ -54,32 +55,33 @@ export class LanchonetesInfoComponent implements OnInit {
 	constructor(private route: ActivatedRoute, private compararPrecosService: CompararPrecosService) { }
 
 	ngOnInit(): void {
-		const nomeLanchonete = this.route.snapshot.paramMap.get('nome');
+			const nomeLanchonete = this.route.snapshot.paramMap.get('nome');
 
-		if (nomeLanchonete) {
-			const nomeLanchoneteNormalized = this.normalizeString(nomeLanchonete);
+			if (nomeLanchonete) {
+				const nomeLanchoneteNormalized = this.normalizeString(nomeLanchonete);
 
-			this.lanchoneteDetalhes = datalanchonetes.lanchonetes.find(
-				(l) => this.normalizeString(l.Nome) === nomeLanchoneteNormalized
-			);
+				this.lanchoneteDetalhes = datalanchonetes.lanchonetes.find(
+					(l) => this.normalizeString(l.Nome) === nomeLanchoneteNormalized
+				);
 
-			if (this.lanchoneteDetalhes) {
-				this.itens = produtos
-					.map((produto) => {
-						const preco = produto[this.lanchoneteDetalhes!.Nome.toUpperCase()];
-						return {
-							Item: produto.Item,
-							Preco: preco && preco !== '-' ? parseFloat(preco).toFixed(2) : 'Preço não disponível',
-							Normalized: this.normalizeString(produto.Item),
-							menorValor: this.compararPrecosService.CalcularMinimoGlobal(produto, datalanchonetes.lanchonetes)
-						};
-					})
-					.filter((item) => item.Preco !== 'Preço não disponível');
+				if (this.lanchoneteDetalhes) {
+					this.itens = produtos
+						.map((produto) => {
+							const preco = produto[this.lanchoneteDetalhes!.Nome.toUpperCase()];
+							return {
+								Item: produto.Item,
+								Preco: preco && preco !== '-' ? parseFloat(preco).toFixed(2) : 'Preço não disponível',
+								Normalized: this.normalizeString(produto.Item),
+								menorValor: this.compararPrecosService.CalcularMinimoGlobal(produto, datalanchonetes.lanchonetes)
+							};
+						})
+						.filter((item) => item.Preco !== 'Preço não disponível');
 
-				this.filteredItems = [...this.itens];
+					this.filteredItems = [...this.itens];
+				}
 			}
 		}
-	}
+
 
 	search(term: string): void {
 		this.searchTerm = term;
@@ -107,5 +109,15 @@ export class LanchonetesInfoComponent implements OnInit {
 			item.Normalized.includes(searchTermNormalized) ||
 			item.Item.toLowerCase().includes(this.searchTerm.toLowerCase())
 		);
-	}
+  }
+
+  get classeData(): string {
+    if (!this.lanchoneteDetalhes?.UltimaDataAtualizacao) return '';
+    const data = new Date(this.lanchoneteDetalhes.UltimaDataAtualizacao);
+    const dias = (Date.now() - data.getTime()) / (1000 * 60 * 60 * 24);
+
+    if (dias <= 180) return 'date-recent';
+    if (dias > 180) return 'date-old';
+    return '';
+  }
 }
