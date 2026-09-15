@@ -48,6 +48,7 @@
     border: 2px solid #5a5a5a70;
     box-shadow: 6px 6px 0px rgba(18, 38, 170, 0.8);
     min-height: 50vh;
+    text-align: justify;
 }
 
 .menu-grid {
@@ -124,8 +125,8 @@
     font-weight: 800;
 }
 
-/* --- BADGE DE DATA DE ATUALIZAÇÃO --- */
 .date-status-badge {
+  margin: 0.4rem;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;

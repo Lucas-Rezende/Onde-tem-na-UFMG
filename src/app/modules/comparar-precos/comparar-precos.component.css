@@ -218,4 +218,22 @@ a { text-decoration: none !important; color: inherit !important; }
   .empty-price {
     font-size: 0.7rem;
   }
+
+  /* Arredondamento e sombra do Modal */
+#itemPickerModal .modal-content {
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+/* Destaque para o item selecionado na lista */
+.active-item {
+  background-color: #eef3ff !important;
+  color: #1226AA !important;
+  font-weight: 700 !important;
+}
+
+/* Ajuste de cursor e hover na lista do modal */
+#itemPickerModal .list-group-item-action:hover {
+  background-color: #f8f9fa;
+}
 }

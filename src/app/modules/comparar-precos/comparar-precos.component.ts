@@ -3,14 +3,18 @@ import datalanchonetes from '../../../assets/datalanchonetes.json';
 
 import { CompararPrecosService } from './../../services/CompararPrecos/comparar-precos.service';
 import { Component, OnInit } from '@angular/core';
+import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
+
 declare var bootstrap: any;
 
 @Component({
     selector: 'app-comparar-precos',
-    imports: [],
     templateUrl: './comparar-precos.component.html',
     styleUrls: ['./comparar-precos.component.css'],
     standalone: true,
+    imports: [
+        SearchBarComponent
+    ],
 })
 export class CompararPrecosComponent implements OnInit {
     itensOriginais: any[] = dataprecos;
@@ -19,6 +23,19 @@ export class CompararPrecosComponent implements OnInit {
     totalLanchonetes = this.lanchonetes.length;
     modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
     private modalInstance: any;
+    searchTerm: string = '';
+    filteredItems: any[] = [];
+
+    	private normalizeString(str: string): string {
+		return str.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.replace(/[^\w\s]/gi, '')
+			.replace(/\s+/g, ' ')
+			.trim()
+			.toLowerCase();
+	}
+
+
 
    private readonly MIN_LANCHONETES = 3; //controla minimo de lanchonetes que oferecem o item
     lanchoneteMenorMedia: string | null = null;
@@ -32,6 +49,7 @@ export class CompararPrecosComponent implements OnInit {
         this.ordenarItens();
         this.calcularLanchoneteComMenorMedia();
     }
+
 
     toggleModoVisualizacao() {
         this.modoVisualizacao =
@@ -61,6 +79,26 @@ export class CompararPrecosComponent implements OnInit {
     }
     calcularPrecoMedio(item: any): number {
         return this.compararPrecosService.calcularPrecoMedio(item, this.lanchonetes);
+    }
+
+    search(term: string): void {
+        this.searchTerm = term;
+    }
+
+    get lanchesFiltrados(): any[] {
+        if (!this.searchTerm || !this.searchTerm.trim()) {
+            return this.itens;
+        }
+
+        const searchTermNormalized = this.normalizeString(this.searchTerm);
+
+        return this.itens.filter(item => {
+            if (!item || !item.Item) return false;
+
+            const itemNomeNormalized = this.normalizeString(item.Item);
+            
+            return itemNomeNormalized.includes(searchTermNormalized);
+        });
     }
 
     getPreco(item: any, nomeLanchonete: string): string | null {
