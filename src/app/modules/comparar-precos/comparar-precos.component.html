@@ -146,29 +146,50 @@
     <i class="bi bi-house text-white"></i>
   </a>
 
-  <div class="modal fade" id="itemPickerModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content border-0 shadow-lg">
-        <div class="modal-header border-0 pb-0">
-          <h5 class="fw-bold px-2 pt-2">O que você procura?</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-3">
-          <div class="list-group list-group-flush">
-            @for (item of itens; track item) {
-            <button type="button" class="list-group-item list-group-item-action border-0 rounded-3 mb-1 py-3"
-              [class.active-item]="item.Item === itemSelecionado" (click)="selectByModal(item.Item)">
+ <div class="modal fade" id="itemPickerModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content border-0 shadow-lg rounded-4">
+      
+      
+      <div class="modal-header border-0 pb-1 pt-3 px-4">
+        <h5 class="fw-bold m-0 text-dark">O que você procura?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      
+      <div class="px-4 py-2 border-bottom bg-light-subtle">
+        <app-search-bar
+          placeholder="Buscar produtos..."
+          (searchChange)="search($event)">
+        </app-search-bar>
+      </div>
+
+      
+      <div class="modal-body p-3">
+        <div class="list-group list-group-flush">
+          @for (item of lanchesFiltrados; track item.Item) {
+            <button 
+              type="button" 
+              class="list-group-item list-group-item-action border-0 rounded-3 mb-1 py-3 px-3"
+              [class.active-item]="item.Item === itemSelecionado" 
+              (click)="selectByModal(item.Item)">
               <div class="d-flex justify-content-between align-items-center">
-                <span>{{ item.Item }}</span>
+                <span class="fw-medium">{{ item.Item }}</span>
                 @if (item.Item === itemSelecionado) {
-                <i class="bi bi-check-lg text-primary"></i>
+                  <i class="bi bi-check-lg text-primary fw-bold fs-5"></i>
                 }
               </div>
             </button>
-            }
-          </div>
+          } @empty {
+            <div class="text-center text-muted py-5 small">
+              <i class="bi bi-search d-block fs-3 mb-2 opacity-50"></i>
+              Nenhum produto encontrado.
+            </div>
+          }
         </div>
       </div>
+
     </div>
   </div>
+</div>
 </main>

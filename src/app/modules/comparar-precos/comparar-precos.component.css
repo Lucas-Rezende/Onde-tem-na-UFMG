@@ -217,4 +217,19 @@ a { text-decoration: none !important; color: inherit !important; }
   .empty-price {
     font-size: 0.7rem;
   }
+
+  #itemPickerModal .modal-content {
+  border-radius: 20px !important;
+  overflow: hidden;
+}
+
+.active-item {
+  background-color: #eef3ff !important;
+  color: #1226AA !important;
+  font-weight: 700 !important;
+}
+
+#itemPickerModal .list-group-item-action:hover {
+  background-color: #f8f9fa;
+}
 }

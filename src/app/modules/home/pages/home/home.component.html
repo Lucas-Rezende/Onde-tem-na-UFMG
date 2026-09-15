@@ -1,6 +1,6 @@
 <nav class="navbar justify-content-center position-absolute top-0 w-100" style="z-index: 10;">
   <a class="navbar-brand me-0" href="#">
-    <img src="/assets/images/sec-logo.png" alt="Logo" height="25">
+    <img src="/assets/images/sec-logo.png" alt="Logo" height="28">
   </a>
 </nav>
 
@@ -11,28 +11,26 @@
   <div class="video-overlay"></div>
 </div>
 
-<main class="hero-section d-flex align-items-center justify-content-center text-center">
-  <div class="container overlay-content d-flex flex-column align-items-center">
+<main class="hero-section d-flex flex-column align-items-center text-center">
+    <div class="container overlay-content d-flex flex-column align-items-center">
 
-    <span class="message-hero mb-5 fade-in-up">💵 Salve seu dinheiro!</span>
+    <span class="message-hero mb-3 fade-in-up">💵 Salve seu dinheiro!</span>
 
-    <h1 class="title-hero display-2 text-black fade-in-up delay-1">Onde tem na UFMG</h1>
+    <h1 class="title-hero display-2 text-black fade-in-up delay-1 mb-2">Onde tem na UFMG</h1>
 
-    <p class="secondary-message-hero lead text-black-50 mb-2 mx-auto fade-in-up delay-2">
+    <p class="secondary-message-hero lead text-black-50 mb-3 mx-auto fade-in-up delay-2">
       Descubra os estabelecimentos do campus da UFMG, compare os preços e faça a <b>melhor escolha!</b>
     </p>
 
-     <div class="bg-red-50 border border-red-200 text-red-800 rounded-2xl p-4 max-w-2xl mx-auto mb-4 text-center shadow-sm fade-in-up delay-3">
-      <p class="font-medium text-sm sm:text-base m-0 leading-relaxed">
-    📸 <b>Viu algum preço diferente na sua lanchonete favorita?</b><br class="hidden sm:inline" />
-    Nos ajude a manter tudo atualizado! Envie a foto do cardápio para 
-    <a href="mailto:ondetemufmg@gmail.com" class="font-bold underline text-red-600 hover:text-red-800 transition-colors">
-      ondetemufmg@gmail.com
-    </a>
+    <div class="card-alert-red fade-in-up delay-3">
+      <p>
+        📸 <b>Viu algum preço diferente na sua lanchonete favorita?</b><br class="d-none d-sm-inline" />
+        Nos ajude a manter tudo atualizado! Envie a foto do cardápio para 
+        <a href="mailto:ondetemufmg@gmail.com">ondetemufmg@gmail.com</a>
       </p>
     </div>
 
-    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-4 fade-in-up delay-3">
+    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-2 fade-in-up delay-3">
       <button (click)="GoTo('/lanchonetes')" class="btn btn-primary btn-lg px-4">
         Conheça os locais
       </button>
