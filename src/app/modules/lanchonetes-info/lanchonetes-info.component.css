@@ -75,6 +75,35 @@
     font-size: 0.9rem;
 }
 
+.map-link-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background: #eef3ff;
+  color: #1226AA;
+  border: 1px solid #d5ddfb;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+
+.map-link-badge:hover {
+  background: #1226AA;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(18, 38, 170, 0.2);
+}
+
+@media (max-width: 576px) {
+  .map-link-badge {
+    font-size: 0.65rem;
+    padding: 0.28rem 0.6rem;
+  }
+}
+
 .item-name {
     word-break: break-word;
 }
