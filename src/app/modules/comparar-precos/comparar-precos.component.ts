@@ -19,8 +19,8 @@ declare var bootstrap: any;
 export class CompararPrecosComponent implements OnInit {
     itensOriginais: any[] = dataprecos;
     itens: any[] = [];
-    lanchonetes: any[] = datalanchonetes.lanchonetes;
-    totalLanchonetes = this.lanchonetes.length;
+    lanchonetes: any[] = [];
+    totalLanchonetes: number = 0; 
     modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
     private modalInstance: any;
     searchTerm: string = '';
@@ -45,7 +45,11 @@ export class CompararPrecosComponent implements OnInit {
 
     constructor(private compararPrecosService: CompararPrecosService) { }
 
-    ngOnInit() {
+    ngOnInit(): void {
+        this.lanchonetes = datalanchonetes.lanchonetes.filter(
+            lanchonete => lanchonete.Ativo == true
+        )
+        this.totalLanchonetes = this.lanchonetes.length
         this.ordenarItens();
         this.calcularLanchoneteComMenorMedia();
     }

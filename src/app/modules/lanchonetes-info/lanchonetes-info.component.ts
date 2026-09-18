@@ -14,8 +14,9 @@ interface Lanchonete {
 	Unidade: string;
 	Predio: string;
 	linkMapa: string;
-  AceitaVr: string;
-  UltimaDataAtualizacao: string;
+  	AceitaVr: string;
+  	UltimaDataAtualizacao: string;
+	Ativo: boolean;
 }
 
 interface ItemCardapio {

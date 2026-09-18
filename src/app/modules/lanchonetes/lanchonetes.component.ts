@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import datalanchonetes from '../../../assets/datalanchonetes.json';
-import { NOMEM } from 'dns';
 
 @Component({
   selector: 'app-lanchonetes',
@@ -10,14 +9,19 @@ import { NOMEM } from 'dns';
   standalone: true,
   imports: [RouterModule]
 })
-export class LanchonetesComponent {
+export class LanchonetesComponent implements OnInit {
   searchTerm: string = '';
 
   lanchonetes: any[] = datalanchonetes.lanchonetes;
-  totalLanchonetes = this.lanchonetes.length;
+  lanchonetesAtivas: any[] = [];
   somenteVR: boolean = false;
 
   constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.lanchonetesAtivas = this.lanchonetes.filter(
+      lanchonete => lanchonete.Ativo == true);
+      }
 
   search(e: Event): void {
     const target = e.target as HTMLInputElement;
@@ -35,12 +39,17 @@ export class LanchonetesComponent {
 
     if(vr){
       if (!termo){
-      return this.lanchonetes.filter(l=> l.AceitaVr === "Sim");
+      return this.lanchonetesAtivas.filter(l=> l.AceitaVr === "Sim");
       }
-      return this.lanchonetes.filter(l=> l.AceitaVr === "Sim" && l.Nome.toLowerCase().includes(termo))
+      return this.lanchonetesAtivas.filter(l=> l.AceitaVr === "Sim" && l.Nome.toLowerCase().includes(termo))
     }
-    if (!termo) return this.lanchonetes;
-    return this.lanchonetes.filter(l => l.Nome.toLowerCase().includes(termo));
+    if (!termo) return this.lanchonetesAtivas;
+    return this.lanchonetesAtivas.filter(l => l.Nome.toLowerCase().includes(termo));
+  }
+
+  get totalLanchonetes(): number {
+
+    return this.lanchonetesFiltradas.length
   }
 
   trackById(index: number, lanchonete: any): number {
