@@ -20,7 +20,7 @@ export class LanchonetesComponent implements OnInit {
 
   ngOnInit(): void {
     this.lanchonetesAtivas = this.lanchonetes.filter(
-      lanchonete => lanchonete.Ativo == true);
+      lanchonete => lanchonete.Ativo === true);
       }
 
   search(e: Event): void {

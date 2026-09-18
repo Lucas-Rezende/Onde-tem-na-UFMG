@@ -47,7 +47,7 @@ export class CompararPrecosComponent implements OnInit {
 
     ngOnInit(): void {
         this.lanchonetes = datalanchonetes.lanchonetes.filter(
-            lanchonete => lanchonete.Ativo == true
+            lanchonete => lanchonete.Ativo === true
         )
         this.totalLanchonetes = this.lanchonetes.length
         this.ordenarItens();
