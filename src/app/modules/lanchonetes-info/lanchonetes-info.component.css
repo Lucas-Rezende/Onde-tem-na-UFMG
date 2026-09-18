@@ -106,6 +106,7 @@
 
 .item-name {
     word-break: break-word;
+    text-align: left;
 }
 
 .price-tag {
