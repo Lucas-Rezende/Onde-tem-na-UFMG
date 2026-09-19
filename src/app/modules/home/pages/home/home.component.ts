@@ -2,11 +2,12 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { NavigationPagesService } from './../../../../services/navigation-pages/navigation-pages.service';
+import { MinimalistNavbarComponent } from '../../../../shared/components/minimalist-navbar/minimalist-navbar.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [MinimalistNavbarComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

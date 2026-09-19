@@ -63,16 +63,19 @@
 }
 
 .title-hero {
-	font-size: clamp(2.7rem, 5vw, 4rem);
-	line-height: 0.95;
-	letter-spacing: -.055em;
-	font-weight: 600;
+  font-size: clamp(2.7rem, 5vw, 4rem);
+  line-height: 0.88;
+  letter-spacing: -.055em;
+  font-weight: 600;
+}
+
+.title-hero span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08em;
 }
 
 .secondary-message-hero {
-	width: min(90%, 570px);
-	font-size: clamp(0.88rem, 1.25vw, 1rem);
-	line-height: 1.5;
+  font-size: 1rem;
 }
 
 @keyframes fadeInUpGentle {
@@ -178,16 +181,24 @@
 }
 
 @media (max-width: 767.98px) {
-	.hero-section {
-		justify-content: flex-start;
-		padding: 56px 12px 24px;
+  :host {
+    position: fixed;
+    inset: 0;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .hero-section {
+    justify-content: flex-start;
+    height: 100dvh;
+    padding: 48px 12px 16px;
 	}
 
-	.title-hero {
-		font-size: clamp(2.35rem, 11vw, 3rem);
-	}
+  .title-hero {
+    font-size: clamp(2.35rem, 11vw, 3rem);
+  }
 
-	.hero-actions,
+  .hero-actions,
 	.update-message {
 		width: min(100%, 340px);
 	}
@@ -208,7 +219,13 @@
 		width: min(100%, 420px);
 	}
 
-	.hero-image-container img {
-		height: clamp(250px, 34dvh, 330px);
-	}
+  .hero-image-container img {
+    height: clamp(180px, 25dvh, 230px);
+  }
+}
+
+@media (max-width: 768px) {
+  .secondary-message-hero {
+    font-size: 0.85rem;
+  }
 }
