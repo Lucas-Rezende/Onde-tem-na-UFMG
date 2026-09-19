@@ -64,6 +64,10 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "poll": 1000,
+            "liveReload": true
+          },
           "configurations": {
             "production": {
               "buildTarget": "Onde-tem-na-UFMG:build:production"
