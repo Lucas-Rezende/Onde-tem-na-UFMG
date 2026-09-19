@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CompararPrecosService {
 
-  constructor() {}
+  constructor() { }
 
   calcularPrecoMedio(item: any, lanchonetes: any[]): number {
     const precos = lanchonetes
@@ -96,7 +96,7 @@ export class CompararPrecosService {
         if (isNaN(data.getTime())) return false;
         const dias = (agora - data.getTime()) / (1000 * 60 * 60 * 24);
         return dias <= LIMITE_DIAS;
-      }).filter(l=> l.Ativo === true)
+      }).filter(l => l.Ativo === true)
       .map((l) => item[l.Nome])
       .filter((p) => p !== undefined && p !== null && p !== '' && p !== '-')
       .map((p) => parseFloat(p))

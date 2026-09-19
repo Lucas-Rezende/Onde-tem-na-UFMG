@@ -22,24 +22,22 @@ export class CompararPrecosComponent implements OnInit {
     itensOriginais: any[] = dataprecos;
     itens: any[] = [];
     lanchonetes: any[] = [];
-    totalLanchonetes: number = 0; 
+    totalLanchonetes: number = 0;
     modoVisualizacao: 'alfabetica' | 'precoMedio' = 'alfabetica';
     private modalInstance: any;
     searchTerm: string = '';
     filteredItems: any[] = [];
 
-    	private normalizeString(str: string): string {
-		return str.normalize('NFD')
-			.replace(/[\u0300-\u036f]/g, '')
-			.replace(/[^\w\s]/gi, '')
-			.replace(/\s+/g, ' ')
-			.trim()
-			.toLowerCase();
-	}
+    private normalizeString(str: string): string {
+        return str.normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^\w\s]/gi, '')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .toLowerCase();
+    }
 
-
-
-   private readonly MIN_LANCHONETES = 3;
+    private readonly MIN_LANCHONETES = 3;
     lanchoneteMenorMedia: string | null = null;
     itemSelecionado: string = '';
     lanchoneteComMenorPreco: string | null = null;
@@ -102,7 +100,7 @@ export class CompararPrecosComponent implements OnInit {
             if (!item || !item.Item) return false;
 
             const itemNomeNormalized = this.normalizeString(item.Item);
-            
+
             return itemNomeNormalized.includes(searchTermNormalized);
         });
     }
@@ -127,15 +125,15 @@ export class CompararPrecosComponent implements OnInit {
         const result = this.compararPrecosService.calcularLanchoneteComMenorPreco(item, this.lanchonetes);
         this.lanchoneteComMenorPreco = result.nome;
         this.menorPreco = result.preco;
-  }
+    }
 
-  limparFiltro(event: Event) {
-    this.itemSelecionado = '';
-    this.lanchoneteComMenorPreco = null;
-    this.menorPreco = null;
-    this.modoVisualizacao = 'alfabetica';
-    this.ordenarItens();
-  }
+    limparFiltro(event: Event) {
+        this.itemSelecionado = '';
+        this.lanchoneteComMenorPreco = null;
+        this.menorPreco = null;
+        this.modoVisualizacao = 'alfabetica';
+        this.ordenarItens();
+    }
 
     isMenorPreco(item: any, lanchonete: string): boolean {
         return (
