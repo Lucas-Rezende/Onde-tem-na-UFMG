@@ -1,66 +1,98 @@
+.content-wrapper {
+    max-width: 1200px;
+}
+
+.title-hero {
+    letter-spacing: -.04em;
+}
+
 .menu-bg {
     background-color: #fcfcfc;
 }
 
 .main-blue {
-    color: #1226aa !important;
-}
-
-.title-hero {
-    font-size: 2rem;
-    font-weight: 400;
-}
-
-.secondary-message-hero {
-    font-size: 1rem;
+    color: #1226AA !important;
 }
 
 .vr-status-badge {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 999px;
     padding: 0.42rem 0.78rem;
     font-size: 0.82rem;
     font-weight: 700;
-    border: 1px solid;
 }
 
 .vr-status-yes {
     background-color: #ecfdf3;
-    border-color: #bbf7d0;
+    border-color: #bbf7d0 !important;
     color: #147a32;
 }
 
 .vr-status-no {
     background-color: #fff1f2;
-    border-color: #fecdd3;
+    border-color: #fecdd3 !important;
     color: #b42318;
 }
 
-@media (max-width: 768px) {
-    .secondary-message-hero {
-        font-size: 0.85rem;
-    }
+.status-badge {
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid #d5ddfb;
+    background: #eef3ff;
+    color: #1226AA;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-link-badge:hover {
+    background: #1226AA;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(18, 38, 170, 0.2);
+}
+
+.date-status-badge:hover {
+    background: #e0e8ff;
+    box-shadow: 0 4px 10px rgba(18, 38, 170, 0.12);
+}
+
+.date-status-badge.date-recent {
+    background: #effdf1;
+    color: #13921f;
+    border-color: #c4f0c8;
+}
+
+.date-status-badge.date-old {
+    background: #fff4e5;
+    color: #b26a00;
+    border-color: #ffd8a8;
 }
 
 .info-box {
-    border-radius: 8px;
-    border: 2px solid #5a5a5a70;
-    box-shadow: 6px 6px 0px rgba(18, 38, 170, 0.8);
+    border-color: #5a5a5a70 !important;
+    box-shadow: 6px 6px 0 rgba(18, 38, 170, 0.8);
     min-height: 50vh;
-    text-align: justify;
+}
+
+.menu-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 120px 120px;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu-heading-title {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
 }
 
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
     column-gap: 3rem;
-    row-gap: 0;
 }
 
 .menu-item {
     border-color: #eceae4 !important;
-    gap: 1rem;
 }
 
 .price-legend {
@@ -68,55 +100,35 @@
     color: #6b7280;
     font-size: 0.78rem;
     line-height: 1.4;
-    text-align: left;
 }
 
 .product-info {
     font-size: 0.9rem;
 }
 
-.map-link-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  background: #eef3ff;
-  color: #1226AA;
-  border: 1px solid #d5ddfb;
-  text-decoration: none !important;
-  transition: all 0.2s ease;
-}
-
-.map-link-badge:hover {
-  background: #1226AA;
-  color: #ffffff;
-  box-shadow: 0 4px 10px rgba(18, 38, 170, 0.2);
-}
-
-@media (max-width: 576px) {
-  .map-link-badge {
-    font-size: 0.65rem;
-    padding: 0.28rem 0.6rem;
-  }
-}
-
 .item-name {
+    min-width: 0;
     word-break: break-word;
     text-align: left;
 }
 
 .price-tag {
     white-space: nowrap;
-    flex-shrink: 0;
     font-size: 1rem;
 }
 
-.tracking-wide {
-    letter-spacing: 0.15em;
+.min-global-value {
+    min-width: 4.4rem;
+    padding: 0.28rem 0.5rem;
+    background-color: #fff1f2;
+    border: 1px solid #fecdd3;
+    color: #b42318;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.justify-self-end {
+    justify-self: end;
 }
 
 .fw-black {
@@ -139,87 +151,42 @@
     animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.min-global-value {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    flex-shrink: 0;
-    min-width: 4.4rem;
-    border-radius: 999px;
-    padding: 0.28rem 0.5rem;
-    background-color: #fff1f2;
-    border: 1px solid #fecdd3;
-    color: #b42318;
-    font-size: 0.82rem;
-    font-weight: 800;
-}
-
-.date-status-badge {
-  margin: 0.4rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  background: #eef3ff;
-  color: #1226AA;
-  border: 1px solid #d5ddfb;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.date-status-badge i {
-  font-size: 0.8rem;
-  opacity: 0.85;
-}
-
-.date-status-badge:hover {
-  background: #e0e8ff;
-  box-shadow: 0 4px 10px rgba(18, 38, 170, 0.12);
-}
-
-.date-status-badge.date-recent {
-  background: #effdf1;
-  color: #13921f;
-  border-color: #c4f0c8;
-}
-
-.date-status-badge.date-old {
-  background: #fff4e5;
-  color: #b26a00;
-  border-color: #ffd8a8;
-}
-
 @media (max-width: 576px) {
-  .date-status-badge {
-    font-size: 0.65rem;
-    padding: 0.28rem 0.6rem;
-  }
-  .date-status-badge i {
-    font-size: 0.72rem;
-  }
-}
+    .status-badge {
+        padding: 0.28rem 0.6rem;
+        font-size: 0.65rem;
+    }
 
-@media (max-width: 576px) {
-    .menu-heading h3 {
-        font-size: 0.68rem;
-        letter-spacing: 0.12em !important;
+    .vr-status-badge {
+        padding: 0.32rem 0.6rem;
+        font-size: 0.7rem;
+    }
+
+    .menu-columns {
+        grid-template-columns: minmax(0, 1fr) 82px 82px;
+        gap: 0.5rem;
+    }
+
+    .menu-heading-title {
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
     }
 
     .price-legend {
         font-size: 0.7rem;
     }
 
+    .product-info {
+        font-size: 0.8rem;
+    }
+
     .price-tag {
-        font-size: 0.92rem;
+        font-size: 0.85rem;
     }
 
     .min-global-value {
         min-width: 3.65rem;
         padding: 0.22rem 0.38rem;
-        font-size: 0.72rem;
+        font-size: 0.7rem;
     }
 }

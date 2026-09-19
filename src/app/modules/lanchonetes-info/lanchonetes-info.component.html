@@ -1,63 +1,60 @@
 <app-minimalist-navbar></app-minimalist-navbar>
-
 @if (lanchoneteDetalhes) {
     <main class="container-fluid d-flex flex-column align-items-center mt-5 p-3">
-       <header class="text-center mb-4 fade-in-up mt-3">
-    <h1 class="title-hero display-2 text-black mb-1">{{ lanchoneteDetalhes.Nome }}</h1>
-    
-    <div class="mb-3">
-        <span class="badge bg-light text-dark border fw-normal me-1">{{ lanchoneteDetalhes.Unidade }}</span>
-        <span class="small text-muted d-block mt-1">{{ lanchoneteDetalhes.Predio }}</span>
-    </div>
-
-    <div class="d-flex flex-wrap justify-content-center align-items-center gap-2 mt-2">
-        @if (lanchoneteDetalhes.AceitaVr === 'Sim') {
-            <span class="vr-status-badge vr-status-yes m-0">Essa lanchonete aceita Vale Refeição</span>
-        } @else if (lanchoneteDetalhes.AceitaVr === 'Não') {
-            <span class="vr-status-badge vr-status-no m-0">Essa lanchonete não aceita Vale Refeição</span>
-        }
-
-        @if (lanchoneteDetalhes.UltimaDataAtualizacao) {
-            <span class="date-status-badge m-0" [class]="classeData">
-                <i class="bi bi-clock-history"></i>
-                Atualizado em {{ lanchoneteDetalhes.UltimaDataAtualizacao | date:'dd/MM/yyyy' }}
-            </span>
-        }
-
-        @if (lanchoneteDetalhes.linkMapa) {
-            <a [href]="lanchoneteDetalhes.linkMapa" target="_blank" class="map-link-badge m-0">
-                <i class="bi bi-geo-alt-fill me-1"></i>Ver no Mapa
-            </a>
-        }
-    </div>
-</header>
-
+        <header class="text-center mb-4 fade-in-up mt-3">
+            <h1 class="title-hero fs-2 fw-normal text-black mb-1">{{ lanchoneteDetalhes.Nome }}</h1>
+            <div class="mb-3">
+                <span class="badge bg-light text-dark border fw-normal">{{ lanchoneteDetalhes.Unidade }}</span>
+                <span class="small text-muted d-block mt-1">{{ lanchoneteDetalhes.Predio }}</span>
+            </div>
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+                @if (lanchoneteDetalhes.AceitaVr === 'Sim') {
+                    <span class="vr-status-badge vr-status-yes d-inline-flex align-items-center rounded-pill border">
+                        <i class="bi bi-check-circle-fill me-1"></i>Essa lanchonete aceita Vale Refeição
+                    </span>
+                } @else if (lanchoneteDetalhes.AceitaVr === 'Não') {
+                    <span class="vr-status-badge vr-status-no d-inline-flex align-items-center rounded-pill border">
+                        <i class="bi bi-x-circle-fill me-1"></i>Essa lanchonete não aceita Vale Refeição
+                    </span>
+                }
+                @if (lanchoneteDetalhes.UltimaDataAtualizacao) {
+                    <span class="status-badge date-status-badge d-inline-flex align-items-center rounded-pill" [class]="classeData">
+                        <i class="bi bi-clock-history"></i>
+                        Atualizado em {{ lanchoneteDetalhes.UltimaDataAtualizacao | date:'dd/MM/yyyy' }}
+                    </span>
+                }
+                @if (lanchoneteDetalhes.linkMapa) {
+                    <a [href]="lanchoneteDetalhes.linkMapa" target="_blank" rel="noopener noreferrer"
+                        class="status-badge map-link-badge d-inline-flex align-items-center rounded-pill text-decoration-none">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        Ver no Mapa
+                    </a>
+                }
+            </div>
+        </header>
         @if (itens.length > 0) {
-            <div class="w-100 fade-in-up mx-auto mb-4" style="max-width: 1200px;">
-                <div class="w-100 mb-4">
+            <div class="content-wrapper w-100 fade-in-up mb-4">
+                <div class="w-100 mb-3">
                     <app-search-bar
                         placeholder="Buscar produtos..."
                         (searchChange)="search($event)">
                     </app-search-bar>
                 </div>
-                <div class="info-box p-4 menu-bg">
-                <div class="menu-heading border-bottom border-dark pb-3 mb-4">
-                    <div class="d-flex justify-content-between align-items-center gap-3">
-                        <h3 class="h6 fw-black m-0 main-blue text-uppercase" style="letter-spacing: 0.2em">
-                            Produtos
-                        </h3>
-                        <h3 class="h6 fw-black m-0 main-blue text-uppercase text-end" style="letter-spacing: 0.2em">
-                            Preço / Menor preço
-                        </h3>
+                <div class="info-box menu-bg p-4 border border-2 rounded-3">
+                    <div class="menu-heading border-bottom border-dark pb-3 mb-2">
+                        <div class="menu-columns">
+                            <span class="menu-heading-title fw-black main-blue text-uppercase">Produto</span>
+                            <span class="menu-heading-title fw-black main-blue text-uppercase text-end">Preço</span>
+                            <span class="menu-heading-title fw-black main-blue text-uppercase text-end">Menor preço</span>
+                        </div>
+                        <p class="price-legend m-0 mt-2 text-start">
+                            O valor em azul é o da respectiva lanchonete. O valor em vermelho mostra o menor preço encontrado no campus para aquele produto.
+                        </p>
                     </div>
-                    <p class="price-legend m-0 mt-2">
-                        O valor em azul é o da respectiva lanchonete. O valor em vermelho mostra o menor preço encontrado no campus para aquele produto.
-                    </p>
-                    </div>
-                    <div class="menu-grid mt-3">
+                    <div class="menu-grid">
                         @for (item of lanchesFiltrados; track item.Item) {
-                            <div class="product-info d-flex justify-content-between align-items-center py-3 border-bottom menu-item">
-                                <span class="item-name fw-bold text-dark text-uppercase small flex-grow-1">{{ item.Item }}</span>
+                            <div class="menu-columns product-info py-3 border-bottom menu-item">
+                                <span class="item-name fw-bold text-dark text-uppercase small">{{ item.Item }}</span>
                                 <span class="price-tag fw-bold main-blue text-end">
                                     @if (item.Preco !== 'Preço não disponível') {
                                         R$&nbsp;{{ item.Preco }}
@@ -65,18 +62,21 @@
                                         <small class="text-muted fst-italic fw-normal">Indisponível</small>
                                     }
                                 </span>
-                                <span class="min-global-value text-end">R$&nbsp;{{item.menorValor}}</span>
+                                <span class="min-global-value d-inline-flex align-items-center justify-content-center text-nowrap rounded-pill justify-self-end">
+                                    R$&nbsp;{{ item.menorValor }}
+                                </span>
                             </div>
                         }
                     </div>
-
                     @if (lanchesFiltrados.length === 0) {
-                        <div class="text-center py-5 text-muted fst-italic">Nenhum produto encontrado.</div>
+                        <div class="text-center py-5 text-muted fst-italic">
+                            <i class="bi bi-search d-block fs-3 mb-2 opacity-50"></i>
+                            Nenhum produto encontrado.
+                        </div>
                     }
                 </div>
             </div>
         }
-
         <app-floating-nav backRoute="/lanchonetes"></app-floating-nav>
     </main>
 }

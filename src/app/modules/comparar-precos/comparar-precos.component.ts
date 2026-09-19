@@ -4,6 +4,7 @@ import datalanchonetes from '../../../assets/datalanchonetes.json';
 import { CompararPrecosService } from './../../services/CompararPrecos/comparar-precos.service';
 import { Component, OnInit } from '@angular/core';
 import { SearchBarComponent } from '../../shared/components/search-bar/search-bar.component';
+import { MinimalistNavbarComponent } from '../../shared/components/minimalist-navbar/minimalist-navbar.component';
 
 declare var bootstrap: any;
 
@@ -13,7 +14,8 @@ declare var bootstrap: any;
     styleUrls: ['./comparar-precos.component.css'],
     standalone: true,
     imports: [
-        SearchBarComponent
+        SearchBarComponent,
+        MinimalistNavbarComponent
     ],
 })
 export class CompararPrecosComponent implements OnInit {

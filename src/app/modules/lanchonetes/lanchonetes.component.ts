@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import datalanchonetes from '../../../assets/datalanchonetes.json';
+import { MinimalistNavbarComponent } from '../../shared/components/minimalist-navbar/minimalist-navbar.component';
 
 @Component({
   selector: 'app-lanchonetes',
   templateUrl: './lanchonetes.component.html',
   styleUrls: ['./lanchonetes.component.css'],
   standalone: true,
-  imports: [RouterModule]
+  imports: [RouterModule, MinimalistNavbarComponent]
 })
 export class LanchonetesComponent implements OnInit {
   searchTerm: string = '';
