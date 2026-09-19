@@ -13,6 +13,14 @@ body {
 	overflow-x: hidden;
 }
 
+body.home-no-scroll {
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	overflow: hidden;
+	overscroll-behavior: none;
+}
+
 .footer {
 	font-size: 0.9rem;
 	display: flex;
